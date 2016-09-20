@@ -18,5 +18,5 @@ int getColumns();
 private:
 int rows;
 int columns;
-int ** board;
+char ** board;
 }
