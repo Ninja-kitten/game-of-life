@@ -2,7 +2,9 @@ import "GameBoard.h"
 import <iostream>
 
 GameBoard::GameBoard(int i, int j){
-  //ask user for the type of mode they would like to play in
+  char board[i+2][j+2];
+  rows = i;
+  columns = j;
 }
 GameBoard::~GameBoard(){
   //destroy
