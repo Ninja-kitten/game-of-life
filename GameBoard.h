@@ -1,6 +1,6 @@
 class GameBoard{
 public:
-GameBoard(int,int,boundarymode);
+GameBoard(int,int);
 ~GameBoard();
 
 /*bool isNeighbor(Cell,Cell);
@@ -15,7 +15,7 @@ int edgeCount();*/
 int getRows();
 int getColumns();
 char getCell(int , int );
-char setCell(int , int, char);
+void setCell(int , int, char);
 
 private:
 int rows;
