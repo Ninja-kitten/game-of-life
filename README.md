@@ -2,12 +2,12 @@
 CPSC 350 game of life
 
 Names:
-Tristan Tran
-Sakthi
+Tristan Tran,
+Sakthi Kasthurirengan
 
 ID Numbers
-1822091
-
+1822091,
+1840119
 
 Description:
 To summarize, when the program is run it should:
