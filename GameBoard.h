@@ -9,14 +9,18 @@ bool isCorner(Cell);
 bool isEmpty(Cell);
 bool isFull(Cell);
 bool setMode();*/
-int countNeighbors(int i, int j);
+int countNeighbors(int , int );
 /*int cornerCount();
 int edgeCount();*/
 int getRows();
 int getColumns();
+char getCell(int , int );
+char setCell(int , int, char);
 
 private:
 int rows;
 int columns;
 char ** board;
+
+  
 }
