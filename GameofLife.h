@@ -35,9 +35,9 @@ BoundaryMode boundary;
 //chooses the boundary taurus 
 DisplayMode display;
 //
-GameBoard oldBoard();
+GameBoard oldBoard;
 //Gameboard before the generation change
-GameBoard newBoard();
+GameBoard newBoard;
 //GameBoard after the generation shifts
 }
 int row;
