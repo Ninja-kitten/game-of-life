@@ -12,6 +12,7 @@ GameBoard::GameBoard(int r, int c){
 
 GameBoard::~GameBoard(){
   //destroy
+  delete board;
 }
 
 int GameBoard::countNeighbor(int i, int j){
