@@ -27,11 +27,13 @@ GameofLife::GameofLife(int bound, int disp, int r, int c, float d){
       default: "The value you input is not 1,2 or 3."
     }
     switch(disp){
-      case 1: boundarymode= Pause;
+      case 1: displaymode= Pause;
         break;
-      case 2: boundarymode = Enter; 
+      case 2: displaymode = Enter; 
         break;
-      case 3: boundarymode = File; 
+      case 3: displaymode = File;
+      		//make the file
+        //
         break;
       default: "The value you input is not 1,2 or 3."
     }
@@ -66,11 +68,12 @@ GameofLife::GameofLife(int bound, int disp, std::string file){
       default: "The value you input is not 1,2 or 3."
     }
     switch(disp){
-      case 1: boundarymode= Pause;
+      case 1: displaymode= Pause;
         break;
-      case 2: boundarymode = Enter; 
+      case 2: displaymode = Enter; 
         break;
-      case 3: boundarymode = File; 
+      case 3: displaymode = File; 
+        //make the file
         break;
       default: "The value you input is not 1,2 or 3."
     }
@@ -133,25 +136,35 @@ GameofLife::nextGen(){
 }
 
 void playGame(){
+	int generation = 0;
+	//PrintBoard
 	while(!oldBoard.isEqual(newBoard)){
+		nextGen();
+		generation++;
 		//System pause stuff here i guess...
 		//Let's do it in another function...
 		 switch(display){
 		      case PAUSE:
+		      	//Print board
+		      	cout<<"Generation #:\t"<<generation<<endl;
 		      	sleep(5);
 		      //give 5 sec between
 		      //Sakthi
 		      break;
 		      
 		      case ENTER:
-		      	enterPlay();
+		      	//Print board
+		      	cout<<"Generation #:\t"<<generation<<endl;
+		      	cout<<"Press any key to continue:"<<endl;
+		      	cin.get();
 		      //wait for cue
 		      //Tristan
 		      	break;
 		      
 		      case FILE:
 		      	filePlay();
-		      //output a file
+		      //append to file.
+		      //whoever draws a short straw....
 		      	break;
 		      default: "The value you input is not 1,2 or 3."
     		}
