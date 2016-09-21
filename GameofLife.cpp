@@ -79,9 +79,9 @@ GameofLife::doughnutFill(){
   }
     for(int j=1, j<1+column;++j)
   {
-    c =  newBoard.getCell(1,j)
-    newBoard.setcell(row+1,j,c)
-    c =  newBoard.getCell(row,j)
-    newBoard.setcell(0,j,c)
+    c =  newBoard.getCell(1,j);
+    newBoard.setcell(row+1,j,c);
+    c =  newBoard.getCell(row,j);
+    newBoard.setcell(0,j,c);
   }
 }  
