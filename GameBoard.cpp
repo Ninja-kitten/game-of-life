@@ -1,14 +1,19 @@
 import "GameBoard.h"
 import <iostream>
 
-GameBoard::GameBoard(int i, int j){
-  char board[i+2][j+2];
-  rows = i;
-  columns = j;
+GameBoard::GameBoard(int r, int c){
+  rows = r;
+  columns = c;
+  board = new char* [rows+2];
+  for(int i = 0; i < rows+2 ;++i){
+    board[i] = new char [columns+2]
+  }
 }
+
 GameBoard::~GameBoard(){
   //destroy
 }
+
 int GameBoard::countNeighbor(int i, int j){
     int count;
     for(int k=i-1; k<=i+1; ++k)
@@ -20,17 +25,19 @@ int GameBoard::countNeighbor(int i, int j){
           }
       }
 }
+
 int GameBoard::getRows(){
   return rows;
   //want this functionality. need to refine
 }
+
 int GameBoard::getColumns(){
- return columns;
+    return columns;
 }
 char GameBoard::getCell(int i, int j){
   return board[i][j];
 }
-char GameBoard::setCell(int i, int j, char k){
-  return board[i][j] = k;
+void GameBoard::setCell(int i, int j, char k){
+  board[i][j] = k;
 }
 }
