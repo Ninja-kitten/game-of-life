@@ -183,4 +183,14 @@ GameofLife::doughnutFill(){
     c =  newBoard.getCell(row,j);
     newBoard.setcell(0,j,c);
   }
-}  
+} 
+
+GameofLife::copyBoard(){
+	char c;
+	for(int i = 1; i<row+1;++i){
+		for(int j = 1; j< column+1; ++j){
+			c = newBoard.getCell(i,j)
+			oldBoard.setCell(i,j,c)
+		}
+	}
+}
