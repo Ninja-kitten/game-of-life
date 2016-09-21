@@ -9,7 +9,7 @@
 #include <time.h>
 using namespace std;
 GameofLife::GameofLife(int bound, int disp, int r, int c, float d){
-    Gameboard gb;
+    oldBoard = new GameBoard(r,c);
     switch(bound){
       case 1: boundarymode= CLASSIC;
         break;
@@ -28,7 +28,21 @@ GameofLife::GameofLife(int bound, int disp, int r, int c, float d){
         break;
       default: "The value you input is not 1,2 or 3."
     }
-    gb.GameBoard(r,c);
+    count = r*c*d;
+    while(count>0){
+        random = rand()%10+1;
+        for(int i =1; i <= c; ++i){
+            for(int j=1; j <=r; ++j){
+                if(random > 5){
+                    oldBoard.setCell(i,j,'X');
+                    count--;
+                }
+                else{
+                    oldBoard.setCell(i,j, '-');
+                }
+            }
+        }
+    }
   
   
 }
