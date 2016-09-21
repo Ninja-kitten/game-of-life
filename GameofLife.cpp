@@ -1,7 +1,13 @@
 #include "GameofLife.h"
-GameofLife::GameofLife(){
+GameofLife::GameofLife(int bound, int disp, int r, int c, float d){
+  
+  
 }
-
+GameofLife::GameofLife(int bound, int disp, std::string str)
+{
+  
+  
+}
 GameofLife::~GameofLife(){
 }
 
