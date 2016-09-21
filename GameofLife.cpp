@@ -1,19 +1,13 @@
 #include "GameofLife.h"
-GameofLife::GameofLife(int bound, int disp, int r, int c, float d){
-  
-  
+GameofLife::GameofLife(){
 }
-GameofLife::GameofLife(int bound, int disp, std::string str)
-{
-  
-  
-}
+
 GameofLife::~GameofLife(){
 }
 
 GameofLife::nextGen(){
-  for(int i = 1; i<=oldBoard.getRows(); ++i){
-    for(int j = 1; j<=oldBoard.getColumns();++j){
+  for(int i = 1; i<=row; ++i){
+    for(int j = 1; j<=oldBoard.column;++j){
       if (oldBoard.countNeighbors(i,j)<=1)
       {
         newBoard.setCell(i,j,'-');
@@ -28,7 +22,8 @@ GameofLife::nextGen(){
       }
       else
       {
-        newBoard.setCell(i,j,oldBoard.getCell(i,j))
+        char c = oldBoard.getCell(i,j);
+        newBoard.setCell(i,j,c)
       }
     }
   }
@@ -39,49 +34,54 @@ GameofLife::nextGen(){
 
 //fill the buffer zone for mirror mode
 GameofLife::mirrorFill(){
-for(int i = 0; i<oldBoard.getRows; ++i){
-  oldBoard.setCell(i,0,'X')
-  oldBoard.setCell(i,columns+1,'X')
-  newBoard.setCell(i,0,'X')
-  newBoard.setCell(i,columns+1,'X')
+for(int i = 0; i<row; ++i){
+  oldBoard.setCell(i,0,'X');
+  oldBoard.setCell(i,columns+1,'X');
+  newBoard.setCell(i,0,'X');
+  newBoard.setCell(i,columns+1,'X');
 }
-  for(int j = 0; j<oldBoard.getColumns;++j)
+  for(int j = 0; j<column;++j)
   {
-    oldBoard.setCell(0,j,'X')
-    oldBoard.setCell(rows+1,j,'X')
-    newBoard.setCell(0,j,'X')
-    newBoard.setCell(rows+1,j,'X')
+    oldBoard.setCell(0,j,'X');
+    oldBoard.setCell(rows+1,j,'X');
+    newBoard.setCell(0,j,'X');
+    newBoard.setCell(rows+1,j,'X');
   }
 }
 
 //fills the buffer zone for classic mode
 GameofLife::classicFill(){
-  for(int i = 0; i<2+oldBoard.getRows; ++i)
+  for(int i = 0; i<2+row; ++i)
   {
-    oldBoard.setCell(i,0,'-')
-    oldBoard.setCell(i,columns+1,'-')
-    newBoard.setCell(i,0,'-')
-    newBoard.setCell(i,columns+1,'-')
+    oldBoard.setCell(i,0,'-');
+    oldBoard.setCell(i,column+1,'-');
+    newBoard.setCell(i,0,'-');
+    newBoard.setCell(i,column+1,'-');
   }
-for(int j = 0; j<2+oldBoard.getColumns;++j)
+for(int j = 0; j<2+column;++j)
   {
-    oldBoard.setCell(0,j,'-')
-    oldBoard.setCell(rows+1,j,'-')
-    newBoard.setCell(0,j,'-')
-    newBoard.setCell(rows+1,j,'-')
+    oldBoard.setCell(0,j,'-');
+    oldBoard.setCell(row+1,j,'-');
+    newBoard.setCell(0,j,'-');
+    newBoard.setCell(row+1,j,'-');
   }
 }
 
 //fills the buffer zone for doughnut mode
 GameofLife::doughnutFill(){
-  for(int i=1; i<1+newBoard.getRows();++i)
+  char c = ' ';
+  for(int i=1; i<1+row;++i)
   {
-    newBoard.setcell(i,0,newBoard.getCell(i,columns))
-    newBoard.setcell(i,newBoard.getColumns(),newBoard.getCell(i,columns))
+    c =  newBoard.getCell(i,column);
+    newBoard.setcell(i,0,c);
+    c =  newBoard.getCell(i,1);
+    newBoard.setcell(i,column+1,c);
   }
-    for(int j=1, j<1+newBoard.getColumns();++i)
+    for(int j=1, j<1+column;++j)
   {
-    newBoard.setcell(0,j,newBoard.getCell(i,columns))
-    newBoard.setcell(newBoard.getRows+1,j,newBoard.getCell(i,columns))
+    c =  newBoard.getCell(1,j)
+    newBoard.setcell(row+1,j,c)
+    c =  newBoard.getCell(row,j)
+    newBoard.setcell(0,j,c)
   }
 }  
