@@ -7,6 +7,7 @@
 #include <cmath>
 #include <cstdlib>
 #include <time.h>
+#include <unistd.h>
 using namespace std;
 GameofLife::GameofLife(){
 	cout<<"I have literally no idea what you expect me to do..."<<endl;
@@ -137,7 +138,7 @@ void playGame(){
 		//Let's do it in another function...
 		 switch(display){
 		      case PAUSE:
-		      	pausePlay();
+		      	sleep(5);
 		      //give 5 sec between
 		      //Sakthi
 		      break;
