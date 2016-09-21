@@ -22,5 +22,4 @@ int rows;
 int columns;
 char ** board;
 
-  
-}
+};
