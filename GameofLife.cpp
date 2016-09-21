@@ -8,18 +8,20 @@
 #include <cstdlib>
 #include <time.h>
 using namespace std;
+GameofLife::GameofLife(){
+	cout<<"I have literally no idea what you expect me to do..."<<endl;
+	throw;
+}
 GameofLife::GameofLife(int bound, int disp, int r, int c, float d){
     oldBoard = new GameBoard(r,c);
     switch(bound){
       case 1: boundarymode= CLASSIC;
-            oldBoard.classicFill();
-            newBoard.classicFill();
+            classicFill();
         break;
       case 2: boudnarymode = DOUGHNUT; 
         break;
       case 3: boundarymode = MIRROR; 
-            oldBoard.mirrorFill();
-            newBoard.mirrorFill();
+	mirrorFill();
         break;
       default: "The value you input is not 1,2 or 3."
     }
@@ -40,9 +42,6 @@ GameofLife::GameofLife(int bound, int disp, int r, int c, float d){
                 if(random > 5){
                     oldBoard.setCell(i,j,'X');
                     count--;
-                }
-                else{
-                    oldBoard.setCell(i,j, '-');
                 }
             }
         }
@@ -129,6 +128,34 @@ GameofLife::nextGen(){
   if(BoundaryMode::DOUGHNUT==boundary){
     doughnutFill();
   }
+  copyBoard();
+}
+
+void playGame(){
+	while(!oldBoard.isEqual(newBoard)){
+		//System pause stuff here i guess...
+		//Let's do it in another function...
+		 switch(display){
+		      case PAUSE:
+		      	pausePlay();
+		      //give 5 sec between
+		      //Sakthi
+		      break;
+		      
+		      case ENTER:
+		      	enterPlay();
+		      //wait for cue
+		      //Tristan
+		      	break;
+		      
+		      case FILE:
+		      	filePlay();
+		      //output a file
+		      	break;
+		      default: "The value you input is not 1,2 or 3."
+    		}
+    		if(newBoard.isEmpty()){break;}
+	}
 }
 
 //fill the buffer zone for mirror mode
@@ -169,28 +196,51 @@ for(int j = 0; j<2+column;++j)
 //fills the buffer zone for doughnut mode
 GameofLife::doughnutFill(){
   char c = ' ';
+  //take care of all the corners
+  c = newBoard.getCell(1,1);
+  newBoard.setCell(row+1,column+1);
+  c= newBoard.getCell(1,column);
+  newBoard.setCell(row+1,0);
+  c= newBoard.getCell(row,1);
+  newBoard.setCell(0,column+1);
+  c = newBoard.getCell(row,column);
+  newBoard.setCell(0,0);
+ 
   for(int i=1; i<1+row;++i)
+ //goest through each row in the interior
   {
     c =  newBoard.getCell(i,column);
+    //grabs the right edge
     newBoard.setcell(i,0,c);
+    //sets the value to the left buffer
     c =  newBoard.getCell(i,1);
+    //grabs the left edge of interior
     newBoard.setcell(i,column+1,c);
+    sets it to right edge of the buffer
   }
     for(int j=1, j<1+column;++j)
+    //goes through each column in the interior
   {
     c =  newBoard.getCell(1,j);
+    //grabs the value of the top edge interior
     newBoard.setcell(row+1,j,c);
+    //sets it to the bottom buffer
     c =  newBoard.getCell(row,j);
+    //grabs the bottom edge interior
     newBoard.setcell(0,j,c);
+    //sets it to the top buffer
   }
+  
 } 
 
 GameofLife::copyBoard(){
 	char c;
-	for(int i = 1; i<row+1;++i){
-		for(int j = 1; j< column+1; ++j){
-			c = newBoard.getCell(i,j)
-			oldBoard.setCell(i,j,c)
+	for(int i = 0; i<row+2;++i){
+		for(int j = 0; j< column+2; ++j){
+			c = newBoard.getCell(i,j);
+			//takes cell value from new
+			oldBoard.setCell(i,j,c);
+			//sets it to the old
 		}
 	}
 }
