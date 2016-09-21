@@ -1,8 +1,18 @@
 #include "GameofLife.h"
+#include "GameBoard.h"
+#include "BoundaryMode.h"
+#include "DisplayMode.h"
+#include <iostream>
+#include <string>
+#include <cmath>
+#include <cstdlib>
+#include <time.h>
+using namespace std;
 GameofLife::GameofLife(){
 }
 
-GameofLife::~GameofLife(){
+GameofLife::~GameofLife(int bound, int disp, std::string file){
+  
 }
 
 GameofLife::nextGen(){
