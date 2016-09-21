@@ -4,6 +4,7 @@
 #include <string>
 class GameofLife{
 public:
+GameofLife();
 GameofLife(int bound,int disp, int r, int c, float d);
 //Constructor for random configuration
 
@@ -14,6 +15,9 @@ GameofLife(int bound,int disp, std::string file);
 //destructor
 void nextGen();
 //Moves the gameboard over to the next generation
+
+void playGame();
+//starts the game of life and keeps on going until it's either empty or stable
 
 void mirrorFill();
 //fills the buffer region with X for mirror mode upon creation of the board
@@ -27,8 +31,9 @@ void doughnutFill();
 void copyBoard();
 //copies a board to make it another one.
 
-void randomFill(float d);
-//
+void pausePlay();
+void enterPlay();
+void filePlay();
 
 private:
 BoundaryMode boundary;
