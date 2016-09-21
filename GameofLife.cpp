@@ -12,17 +12,21 @@ GameofLife::GameofLife(int bound, int disp, int r, int c, float d){
     oldBoard = new GameBoard(r,c);
     switch(bound){
       case 1: boundarymode= CLASSIC;
+            oldBoard.classicFill();
+            newBoard.classicFill();
         break;
       case 2: boudnarymode = DOUGHNUT; 
         break;
       case 3: boundarymode = MIRROR; 
+            oldBoard.mirrorFill();
+            newBoard.mirrorFill();
         break;
       default: "The value you input is not 1,2 or 3."
     }
     switch(disp){
       case 1: boundarymode= Pause;
         break;
-      case 2: boudnarymode = Enter; 
+      case 2: boundarymode = Enter; 
         break;
       case 3: boundarymode = File; 
         break;
@@ -47,10 +51,59 @@ GameofLife::GameofLife(int bound, int disp, int r, int c, float d){
   
 }
 
-GameofLife::~GameofLife(int bound, int disp, std::string file){
-  
+GameofLife::GameofLife(int bound, int disp, std::string file){
+   switch(bound){
+      case 1: boundarymode= CLASSIC;
+            oldBoard.classicFill();
+            newBoard.classicFill();
+        break;
+      case 2: boudnarymode = DOUGHNUT; 
+        break;
+      case 3: boundarymode = MIRROR; 
+            oldBoard.mirrorFill();
+            newBoard.mirrorFill();
+        break;
+      default: "The value you input is not 1,2 or 3."
+    }
+    switch(disp){
+      case 1: boundarymode= Pause;
+        break;
+      case 2: boundarymode = Enter; 
+        break;
+      case 3: boundarymode = File; 
+        break;
+      default: "The value you input is not 1,2 or 3."
+    }
+    ifstream readfile(file);
+    str r;
+    str c;
+    getline(readfile,r)
+    //get the first line from the file which is the number of rows
+    row = stoi(r,nullptr)
+    //convert to integer
+    getline(readfile,c)
+    //read the second line which is the number of columns
+    column = stoi(c,nullptr)
+    //convert to integer
+    oldBoard = new GameBoard(row,column);
+    newBoard = new GameBoard(row,column);
+    string str;
+    int i = 1;
+    char c = ' ';
+    while(getline(readfile,str))
+    {
+	    for( int j = 1; j<column+1;++j)
+	    {
+	        c = str[j-1];
+		    oldBoard.setCell(i,j,c);
+	    }
+    }
 }
 
+GameofLife::~GameofLife(){
+    delete oldBoard;
+    delete newBoard;
+}
 GameofLife::nextGen(){
   for(int i = 1; i<=row; ++i){
     for(int j = 1; j<=oldBoard.column;++j){
