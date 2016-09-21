@@ -8,7 +8,29 @@
 #include <cstdlib>
 #include <time.h>
 using namespace std;
-GameofLife::GameofLife(){
+GameofLife::GameofLife(int bound, int disp, int r, int c, float d){
+    Gameboard gb;
+    switch(bound){
+      case 1: boundarymode= CLASSIC;
+        break;
+      case 2: boudnarymode = DOUGHNUT; 
+        break;
+      case 3: boundarymode = MIRROR; 
+        break;
+      default: "The value you input is not 1,2 or 3."
+    }
+    switch(disp){
+      case 1: boundarymode= Pause;
+        break;
+      case 2: boudnarymode = Enter; 
+        break;
+      case 3: boundarymode = File; 
+        break;
+      default: "The value you input is not 1,2 or 3."
+    }
+    gb.GameBoard(r,c);
+  
+  
 }
 
 GameofLife::~GameofLife(int bound, int disp, std::string file){
