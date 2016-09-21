@@ -41,4 +41,27 @@ char GameBoard::getCell(int i, int j){
 void GameBoard::setCell(int i, int j, char k){
   board[i][j] = k;
 }
+
+bool GameBoard::isEqual(GameBoard g){
+  char c;
+  for(int i = 1; i<rows+1;++i){
+    for(int j = 1; j <columns+1; ++j){
+      c = g.getCell(i,j)
+      if(board[i][j] != c)
+        return false;
+    }
+  }
+  return true;
+}
+
+bool GameBoard::isEmpty()
+{
+  char c = '-';
+  for(int i = 1; i<rows+1;++i){
+    for(int j = 1; j <columns+1; ++j){
+      if(board[i][j] != c)
+        return false;
+    }
+  }
+  return true;
 }
