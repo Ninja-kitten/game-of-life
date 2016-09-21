@@ -43,6 +43,13 @@ void GameBoard::setCell(int i, int j, char k){
 }
 
 bool GameBoard::isEqual(GameBoard g){
+  if(rows != g.getRows()|| columns != g.getColumns()){
+    for(int i = 0; i<1000; ++i){
+      cout<<"YOU FUCKING IDIOT!!! THEY'RE NOT EVEN THE SAME SIZE"<<endl;
+      cout<<"idiot"<<endl;
+    }
+    return false;
+  }
   char c;
   for(int i = 1; i<rows+1;++i){
     for(int j = 1; j <columns+1; ++j){
