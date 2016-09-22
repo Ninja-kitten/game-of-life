@@ -31,20 +31,21 @@ void doughnutFill();
 void copyBoard();
 //copies a board to make it another one.
 
-void pausePlay();
-void enterPlay();
-void filePlay();
+std::string genString(int r);
+
+void appendFile(std::string line);
 
 private:
 BoundaryMode boundary;
 //chooses the boundary taurus 
 DisplayMode display;
 //
+int row;
+int column;
 GameBoard oldBoard;
 //Gameboard before the generation change
 GameBoard newBoard;
 //GameBoard after the generation shifts
 }
-int row;
-int column;
+
 
