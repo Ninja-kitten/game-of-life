@@ -20,3 +20,7 @@ to press the “enter” key, or if they want to output to a file.
 5. If the simulation is infinite, just keep running. But if the world becomes empty or
 stabilizes, the simulation should halt and ask the user to press “enter” to exit the
 program.
+
+Resources:
+-Added the ifndef etc. based on the suggestions of my friend Rio.
+-Sleep(), setParam() and cin.get() additions based off answers found on cplusplus forums
