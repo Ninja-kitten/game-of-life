@@ -40,7 +40,7 @@ int display;
 //
 int row;
 int column;
-std::string filename;
+char* filename;
 GameBoard oldBoard;
 //Gameboard before the generation change
 GameBoard newBoard;
