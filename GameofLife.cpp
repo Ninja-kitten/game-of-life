@@ -60,18 +60,7 @@ GameofLife::GameofLife(int bound, int disp, std::string file){
       case 3:  
 	mirrorFill();
         break;
-      default: "The value you input is not 1,2 or 3."
-    }
-    switch(disp){
-      case 1: 
-        break;
-      case 2: 
-        break;
-      case 3: 
-      		//make the file
-        //
-        break;
-      default: "The value you input is not 1,2 or 3."
+      default: cout<<"The value you input is not 1,2 or 3."<<endl;
     }
     filename = file;
     ifstream readfile(file);
