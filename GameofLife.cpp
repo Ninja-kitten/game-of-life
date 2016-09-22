@@ -62,8 +62,9 @@ GameofLife::GameofLife(int bound, int disp, const char* file){
         break;
       default: cout<<"The value you input is not 1,2 or 3."<<endl;
     }
-    filename = file.c_str;
-    ifstream readfile(filename);
+    filename = file;
+    ifstream readfile;
+    readfile.open(filename);
     string r;
     string c;
     getline(readfile,r)
