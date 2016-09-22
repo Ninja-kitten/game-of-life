@@ -17,22 +17,22 @@ GameofLife::GameofLife(int bound, int disp, int r, int c, float d){
     oldBoard.setParam(r,c);
     newBoard.setParam(r,c);
     switch(bound){
-      case 1: boundary = CLASSIC;
+      case 1: boundary = BoundaryMode::CLASSIC;
             classicFill();
         break;
-      case 2: boundary = DOUGHNUT; 
+      case 2: boundary = BoundaryMode::DOUGHNUT; 
         break;
-      case 3: boundary = MIRROR; 
+      case 3: boundary = BoundaryMode::MIRROR; 
 	mirrorFill();
         break;
       default: "The value you input is not 1,2 or 3."
     }
     switch(disp){
-      case 1: display = PAUSE;
+      case 1: display = DisplayMode::PAUSE;
         break;
-      case 2: display = ENTER; 
+      case 2: display = DisplayMode::ENTER; 
         break;
-      case 3: display = FILE;
+      case 3: display = DisplayMode::FILE;
       		//make the file
         //
         break;
@@ -45,33 +45,33 @@ GameofLife::GameofLife(int bound, int disp, int r, int c, float d){
             for(int j=1; j <=r; ++j){
                 if(random > 5){
                     oldBoard.setCell(i,j,'X');
-                    count--;
+                newBoard.setCell(i,j,'X');    
+		count--;
                 }
             }
         }
     }
-  
-  
+    copyBoard();
 }
 
 GameofLife::GameofLife(int bound, int disp, std::string file){
     switch(bound){
-      case 1: boundary = CLASSIC;
+      case 1: boundary = BoundaryMode::CLASSIC;
             classicFill();
         break;
-      case 2: boundary = DOUGHNUT; 
-        break;
-      case 3: boundary = MIRROR; 
+      case 2: boundary = BoundaryMode::DOUGHNUT; 
+	break;
+      case 3: boundary = BoundaryMode::MIRROR; 
 	mirrorFill();
         break;
       default: "The value you input is not 1,2 or 3."
     }
     switch(disp){
-      case 1: display = PAUSE;
+      case 1: display = DisplayMode::PAUSE;
         break;
-      case 2: display = ENTER; 
+      case 2: display = DisplayMode::ENTER; 
         break;
-      case 3: display = FILE;
+      case 3: display = DisplayMode::FILE;
       		//make the file
         //
         break;
@@ -99,10 +99,12 @@ GameofLife::GameofLife(int bound, int disp, std::string file){
 	    for( int j = 1; j<column+1;++j)
 	    {
 	        c = str[j-1];
-		    oldBoard.setCell(i,j,c);
+		oldBoard.setCell(i,j,c);
+		newBoard.setCell(i,j,c);
 	    }
 	    i++;
     }
+	copyBoard();
 }
 
 GameofLife::~GameofLife(){

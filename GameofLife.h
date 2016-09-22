@@ -47,6 +47,6 @@ GameBoard oldBoard;
 //Gameboard before the generation change
 GameBoard newBoard;
 //GameBoard after the generation shifts
-}
+};
 
 
