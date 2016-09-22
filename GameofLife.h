@@ -42,6 +42,7 @@ DisplayMode display;
 //
 int row;
 int column;
+std::string filename;
 GameBoard oldBoard;
 //Gameboard before the generation change
 GameBoard newBoard;
