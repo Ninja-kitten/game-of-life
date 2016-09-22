@@ -62,10 +62,10 @@ GameofLife::GameofLife(int bound, int disp, std::string file){
         break;
       default: cout<<"The value you input is not 1,2 or 3."<<endl;
     }
-    filename = file;
-    ifstream readfile(file);
-    str r;
-    str c;
+    filename = file.c_str;
+    ifstream readfile(filename);
+    string r;
+    string c;
     getline(readfile,r)
     //get the first line from the file which is the number of rows
     row = stoi(r,nullptr)
