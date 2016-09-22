@@ -14,24 +14,25 @@ GameofLife::GameofLife(){
 	throw;
 }
 GameofLife::GameofLife(int bound, int disp, int r, int c, float d){
-    oldBoard = new GameBoard(r,c);
+    oldBoard.setParam(r,c);
+    newBoard.setParam(r,c);
     switch(bound){
-      case 1: boundarymode= CLASSIC;
+      case 1: boundary = CLASSIC;
             classicFill();
         break;
-      case 2: boudnarymode = DOUGHNUT; 
+      case 2: boundary = DOUGHNUT; 
         break;
-      case 3: boundarymode = MIRROR; 
+      case 3: boundary = MIRROR; 
 	mirrorFill();
         break;
       default: "The value you input is not 1,2 or 3."
     }
     switch(disp){
-      case 1: displaymode= Pause;
+      case 1: display = PAUSE;
         break;
-      case 2: displaymode = Enter; 
+      case 2: display = ENTER; 
         break;
-      case 3: displaymode = File;
+      case 3: display = FILE;
       		//make the file
         //
         break;
@@ -54,26 +55,25 @@ GameofLife::GameofLife(int bound, int disp, int r, int c, float d){
 }
 
 GameofLife::GameofLife(int bound, int disp, std::string file){
-   switch(bound){
-      case 1: boundarymode= CLASSIC;
-            oldBoard.classicFill();
-            newBoard.classicFill();
+    switch(bound){
+      case 1: boundary = CLASSIC;
+            classicFill();
         break;
-      case 2: boudnarymode = DOUGHNUT; 
+      case 2: boundary = DOUGHNUT; 
         break;
-      case 3: boundarymode = MIRROR; 
-            oldBoard.mirrorFill();
-            newBoard.mirrorFill();
+      case 3: boundary = MIRROR; 
+	mirrorFill();
         break;
       default: "The value you input is not 1,2 or 3."
     }
     switch(disp){
-      case 1: displaymode= Pause;
+      case 1: display = PAUSE;
         break;
-      case 2: displaymode = Enter; 
+      case 2: display = ENTER; 
         break;
-      case 3: displaymode = File; 
-        //make the file
+      case 3: display = FILE;
+      		//make the file
+        //
         break;
       default: "The value you input is not 1,2 or 3."
     }
@@ -88,8 +88,8 @@ GameofLife::GameofLife(int bound, int disp, std::string file){
     //read the second line which is the number of columns
     column = stoi(c,nullptr)
     //convert to integer
-    oldBoard = new GameBoard(row,column);
-    newBoard = new GameBoard(row,column);
+    oldBoard.setParam(r,c);
+    newBoard.setParam(r,c);
     string str;
     int i = 1;
     char c = ' ';
@@ -100,6 +100,7 @@ GameofLife::GameofLife(int bound, int disp, std::string file){
 	        c = str[j-1];
 		    oldBoard.setCell(i,j,c);
 	    }
+	    i++;
     }
 }
 
