@@ -1,12 +1,14 @@
-import "GameBoard.h"
-import <iostream>
+#include "GameBoard.h"
+#include <iostream>
+using namespace std;
 
+GameBoard::GameBoard(){}
 GameBoard::GameBoard(int r, int c){
   rows = r;
   columns = c;
   board = new char* [rows+2];
   for(int i = 0; i < rows+2 ;++i){
-    board[i] = new char [columns+2]
+    board[i] = new char [columns+2];
   }
 }
 
@@ -15,7 +17,7 @@ GameBoard::~GameBoard(){
   delete board;
 }
 
-int GameBoard::countNeighbor(int i, int j){
+int GameBoard::countNeighbors(int i, int j){
     int count;
     for(int k=i-1; k<=i+1; ++k)
      {
@@ -53,7 +55,7 @@ bool GameBoard::isEqual(GameBoard g){
   char c;
   for(int i = 1; i<rows+1;++i){
     for(int j = 1; j <columns+1; ++j){
-      c = g.getCell(i,j)
+      c = g.getCell(i,j);
       if(board[i][j] != c)
         return false;
     }
