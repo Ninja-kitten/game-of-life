@@ -36,9 +36,9 @@ std::string genString(int r);
 void appendFile(std::string line);
 
 private:
-BoundaryMode boundary;
+int boundary;
 //chooses the boundary taurus 
-DisplayMode display;
+int display;
 //
 int row;
 int column;
