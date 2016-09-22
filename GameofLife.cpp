@@ -48,7 +48,7 @@ GameofLife::GameofLife(int bound, int disp, int r, int c, float d){
     copyBoard();
 }
 
-GameofLife::GameofLife(int bound, int disp, std::string file){
+GameofLife::GameofLife(int bound, int disp, const char* file){
     boundary = bound;
     display = disp;
     switch(bound){
