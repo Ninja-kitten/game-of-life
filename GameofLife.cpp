@@ -1,7 +1,5 @@
 #include "GameofLife.h"
 #include "GameBoard.h"
-#include "BoundaryMode.h"
-#include "DisplayMode.h"
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -16,28 +14,20 @@ GameofLife::GameofLife(){
 GameofLife::GameofLife(int bound, int disp, int r, int c, float d){
     oldBoard.setParam(r,c);
     newBoard.setParam(r,c);
+    boundary = bound;
+    display = disp;
     switch(bound){
-      case 1: boundary = BoundaryMode::CLASSIC;
+      case 1:
             classicFill();
         break;
-      case 2: boundary = BoundaryMode::DOUGHNUT; 
+      case 2:  
         break;
-      case 3: boundary = BoundaryMode::MIRROR; 
+      case 3:  
 	mirrorFill();
         break;
       default: "The value you input is not 1,2 or 3."
     }
-    switch(disp){
-      case 1: display = DisplayMode::PAUSE;
-        break;
-      case 2: display = DisplayMode::ENTER; 
-        break;
-      case 3: display = DisplayMode::FILE;
-      		//make the file
-        //
-        break;
-      default: "The value you input is not 1,2 or 3."
-    }
+    
     count = r*c*d;
     while(count>0){
         random = rand()%10+1;
@@ -51,27 +41,32 @@ GameofLife::GameofLife(int bound, int disp, int r, int c, float d){
             }
         }
     }
+    if(boundary == 2){
+    	doughnutFill();
+    }
     copyBoard();
 }
 
 GameofLife::GameofLife(int bound, int disp, std::string file){
+    boundary = bound;
+    display = disp;
     switch(bound){
-      case 1: boundary = BoundaryMode::CLASSIC;
+      case 1:
             classicFill();
         break;
-      case 2: boundary = BoundaryMode::DOUGHNUT; 
+      case 2:  
 	break;
-      case 3: boundary = BoundaryMode::MIRROR; 
+      case 3:  
 	mirrorFill();
         break;
       default: "The value you input is not 1,2 or 3."
     }
     switch(disp){
-      case 1: display = DisplayMode::PAUSE;
+      case 1: 
         break;
-      case 2: display = DisplayMode::ENTER; 
+      case 2: 
         break;
-      case 3: display = DisplayMode::FILE;
+      case 3: 
       		//make the file
         //
         break;
@@ -105,6 +100,9 @@ GameofLife::GameofLife(int bound, int disp, std::string file){
 	    i++;
     }
 	copyBoard();
+	if(boundary == 2){
+		doughnutFill();
+	}
 }
 
 GameofLife::~GameofLife(){
@@ -133,7 +131,7 @@ void GameofLife::nextGen(){
       }
     }
   }
-  if(BoundaryMode::DOUGHNUT==boundary){
+  if(boundary==2){
     doughnutFill();
   }
   copyBoard();
@@ -147,7 +145,7 @@ void playGame(){
 		generation++;
 
 		 switch(display){
-		      case PAUSE:
+		      case 1:
 		      	cout<<"Generation #:\t"<<generation<<endl;
 		      	printBoard();
 		      	sleep(5);
@@ -155,7 +153,7 @@ void playGame(){
 		      //Sakthi
 		      break;
 		      
-		      case ENTER:
+		      case 2:
 		      	//Print board
 		      	cout<<"Generation #:\t"<<generation<<endl;
 		      	printBoard();
@@ -165,7 +163,7 @@ void playGame(){
 		      //Tristan
 		      	break;
 		      
-		      case FILE:
+		      case 3:
 		      	appendFile();
 		      //append to file.
 		      //whoever draws a short straw....
