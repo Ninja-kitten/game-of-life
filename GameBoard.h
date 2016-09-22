@@ -12,6 +12,7 @@ int getRows();
 int getColumns();
 char getCell(int , int );
 void setCell(int , int, char);
+void setParam(int, int)
 
 bool isEqual(GameBoard);
 bool isEmpty();
@@ -22,3 +23,4 @@ int columns;
 char ** board;
 
 };
+#endif
