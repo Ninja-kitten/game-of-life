@@ -11,7 +11,14 @@ GameBoard::GameBoard(int r, int c){
     board[i] = new char [columns+2];
   }
 }
-
+GameBoard::setParam(int r, int c){
+  rows = r;
+  columns = c;
+  board = new char* [rows+2];
+  for(int i = 0; i < rows+2 ;++i){
+    board[i] = new char [columns+2];
+  }
+}
 GameBoard::~GameBoard(){
   //destroy
   delete board;
