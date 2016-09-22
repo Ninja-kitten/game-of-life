@@ -77,6 +77,7 @@ GameofLife::GameofLife(int bound, int disp, std::string file){
         break;
       default: "The value you input is not 1,2 or 3."
     }
+    filename = file;
     ifstream readfile(file);
     str r;
     str c;
@@ -108,7 +109,7 @@ GameofLife::~GameofLife(){
     delete oldBoard;
     delete newBoard;
 }
-GameofLife::nextGen(){
+void GameofLife::nextGen(){
   for(int i = 1; i<=row; ++i){
     for(int j = 1; j<=oldBoard.column;++j){
       if (oldBoard.countNeighbors(i,j)<=1)
@@ -142,12 +143,11 @@ void playGame(){
 	while(!oldBoard.isEqual(newBoard)){
 		nextGen();
 		generation++;
-		//System pause stuff here i guess...
-		//Let's do it in another function...
+
 		 switch(display){
 		      case PAUSE:
-		      	//Print board
 		      	cout<<"Generation #:\t"<<generation<<endl;
+		      	printBoard();
 		      	sleep(5);
 		      //give 5 sec between
 		      //Sakthi
@@ -156,6 +156,7 @@ void playGame(){
 		      case ENTER:
 		      	//Print board
 		      	cout<<"Generation #:\t"<<generation<<endl;
+		      	printBoard();
 		      	cout<<"Press any key to continue:"<<endl;
 		      	cin.get();
 		      //wait for cue
@@ -163,9 +164,13 @@ void playGame(){
 		      	break;
 		      
 		      case FILE:
-		      	filePlay();
+		      	appendFile();
 		      //append to file.
 		      //whoever draws a short straw....
+		      	if(generation > 1000)
+		      	{
+		      		return;
+		      	}
 		      	break;
 		      default: "The value you input is not 1,2 or 3."
     		}
@@ -174,7 +179,7 @@ void playGame(){
 }
 
 //fill the buffer zone for mirror mode
-GameofLife::mirrorFill(){
+void GameofLife::mirrorFill(){
 for(int i = 0; i<row; ++i){
   oldBoard.setCell(i,0,'X');
   oldBoard.setCell(i,columns+1,'X');
@@ -191,7 +196,7 @@ for(int i = 0; i<row; ++i){
 }
 
 //fills the buffer zone for classic mode
-GameofLife::classicFill(){
+void GameofLife::classicFill(){
   for(int i = 0; i<2+row; ++i)
   {
     oldBoard.setCell(i,0,'-');
@@ -209,7 +214,7 @@ for(int j = 0; j<2+column;++j)
 }
 
 //fills the buffer zone for doughnut mode
-GameofLife::doughnutFill(){
+void GameofLife::doughnutFill(){
   char c = ' ';
   //take care of all the corners
   c = newBoard.getCell(1,1);
@@ -248,7 +253,7 @@ GameofLife::doughnutFill(){
   
 } 
 
-GameofLife::copyBoard(){
+void GameofLife::copyBoard(){
 	char c;
 	for(int i = 0; i<row+2;++i){
 		for(int j = 0; j< column+2; ++j){
@@ -257,5 +262,30 @@ GameofLife::copyBoard(){
 			oldBoard.setCell(i,j,c);
 			//sets it to the old
 		}
+	}
+}
+
+string genString(int r){
+	string str;
+	for(int j = 1; j<=column; ++j)
+	{
+		str+= oldBoard.getCell(r,j);
+	}
+	return str;
+}
+void appendFile(){
+	ofstream fileoutput(filename, std::ofstream::app);
+	string str;
+	for(int i = 1; i<=row; ++i){
+		str = genString(i);
+		fileoutput<<str<<endl;
+	}
+	fileoutput.close();
+}
+void printBoard(){
+	string str;
+	for(int i = 1; i<=row; ++i){
+		str = genString(i);
+		cout<<str<<endl;
 	}
 }
