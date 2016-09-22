@@ -1,6 +1,4 @@
 #include "GameBoard.h"
-#include "BoundaryMode.h"
-#include "DisplayMode.h"
 #include <string>
 class GameofLife{
 public:
