@@ -11,7 +11,7 @@ GameBoard::GameBoard(int r, int c){
     board[i] = new char [columns+2];
   }
 }
-GameBoard::setParam(int r, int c){
+void GameBoard::setParam(int r, int c){
   rows = r;
   columns = c;
   board = new char* [rows+2];
