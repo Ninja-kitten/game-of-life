@@ -25,10 +25,11 @@ GameofLife::GameofLife(int bound, int disp, int r, int c, float d){
       case 3:  
 	mirrorFill();
         break;
-      default: "The value you input is not 1,2 or 3."
+      default: cout<<"The value you input is not 1,2 or 3."<<endl;
     }
     
-    count = r*c*d;
+    int count = r*c*d;
+    int random;
     while(count>0){
         random = rand()%10+1;
         for(int i =1; i <= c; ++i){
@@ -158,6 +159,7 @@ void playGame(){
 		      	cout<<"Generation #:\t"<<generation<<endl;
 		      	printBoard();
 		      	cout<<"Press any key to continue:"<<endl;
+		      	cin.ignore();
 		      	cin.get();
 		      //wait for cue
 		      //Tristan
