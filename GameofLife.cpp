@@ -223,11 +223,11 @@ void GameofLife::doughnutFill(){
   {
     c =  newBoard.getCell(i,column);
     //grabs the right edge
-    newBoard.setcell(i,0,c);
+    newBoard.setCell(i,0,c);
     //sets the value to the left buffer
     c =  newBoard.getCell(i,1);
     //grabs the left edge of interior
-    newBoard.setcell(i,column+1,c);
+    newBoard.setCell(i,column+1,c);
     //sets it to right edge of the buffer
   }
     for(int j=1, j<1+column;++j)
@@ -235,11 +235,11 @@ void GameofLife::doughnutFill(){
   {
     c =  newBoard.getCell(1,j);
     //grabs the value of the top edge interior
-    newBoard.setcell(row+1,j,c);
+    newBoard.setCell(row+1,j,c);
     //sets it to the bottom buffer
     c =  newBoard.getCell(row,j);
     //grabs the bottom edge interior
-    newBoard.setcell(0,j,c);
+    newBoard.setCell(0,j,c);
     //sets it to the top buffer
   }
   
