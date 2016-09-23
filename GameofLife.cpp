@@ -67,13 +67,13 @@ GameofLife::GameofLife(int bound, int disp, string file){
     ifstream readfile(filename.c_str());
     string r;
     string c;
-    getline(readfile,r)
+    getline(readfile,r);
     //get the first line from the file which is the number of rows
-    row = stoi(r,nullptr)
+    row = stoi(r,nullptr);
     //convert to integer
-    getline(readfile,c)
+    getline(readfile,c);
     //read the second line which is the number of columns
-    column = stoi(c,nullptr)
+    column = stoi(c,nullptr);
     //convert to integer
     oldBoard.setParam(row,column);
     newBoard.setParam(row,column);
