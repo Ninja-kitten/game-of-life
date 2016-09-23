@@ -118,7 +118,7 @@ void GameofLife::nextGen(){
       else
       {
         char c = oldBoard.getCell(i,j);
-        newBoard.setCell(i,j,c)
+        newBoard.setCell(i,j,c);
       }
     }
   }
@@ -164,7 +164,7 @@ void playGame(){
 		      		return;
 		      	}
 		      	break;
-		      default: "The value you input is not 1,2 or 3."
+		      default: cout<<"The value you input is not 1,2 or 3."<<endl;
     		}
     		if(newBoard.isEmpty()){break;}
 	}
@@ -228,7 +228,7 @@ void GameofLife::doughnutFill(){
     c =  newBoard.getCell(i,1);
     //grabs the left edge of interior
     newBoard.setcell(i,column+1,c);
-    sets it to right edge of the buffer
+    //sets it to right edge of the buffer
   }
     for(int j=1, j<1+column;++j)
     //goes through each column in the interior
