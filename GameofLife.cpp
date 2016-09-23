@@ -230,7 +230,7 @@ void GameofLife::doughnutFill(){
     newBoard.setCell(i,column+1,c);
     //sets it to right edge of the buffer
   }
-    for(int j=1, j<1+column;++j)
+    for(int j=1; j<1+column;++j)
     //goes through each column in the interior
   {
     c =  newBoard.getCell(1,j);
