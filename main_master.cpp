@@ -68,4 +68,3 @@ else{
  throw invalid_argument("Please enter file or random"); 
   }
 }
-}
