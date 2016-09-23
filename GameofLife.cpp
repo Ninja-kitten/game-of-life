@@ -210,13 +210,13 @@ void GameofLife::doughnutFill(){
   char c = ' ';
   //take care of all the corners
   c = newBoard.getCell(1,1);
-  newBoard.setCell(row+1,column+1);
+  newBoard.setCell(row+1,column+1,c);
   c= newBoard.getCell(1,column);
-  newBoard.setCell(row+1,0);
+  newBoard.setCell(row+1,0,c);
   c= newBoard.getCell(row,1);
-  newBoard.setCell(0,column+1);
+  newBoard.setCell(0,column+1,c);
   c = newBoard.getCell(row,column);
-  newBoard.setCell(0,0);
+  newBoard.setCell(0,0,c);
  
   for(int i=1; i<1+row;++i)
  //goest through each row in the interior
