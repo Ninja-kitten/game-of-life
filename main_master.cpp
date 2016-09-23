@@ -6,7 +6,6 @@ using namespace std;
 
 int main(int argc, char** argv){
 
-GameofLife gL;
 
 cout << "Welcome to the Game of Life!" << endl;
 cout << "Would you like to start by providing a file to run the simulation or would you like a random assignment?"<< endl;
@@ -30,7 +29,7 @@ if(answer == "file")
   int mode = stoi(strMode,nullptr);
   
   if((boundary == 1 || boundary == 2 || boundary == 3) && (mode == 1 || mode == 2 || mode == 3)){
-    gL.GameofLife(boundary,mode, filename);}
+    GameofLife gL(boundary,mode, filename);}
   else{ throw invalid_argument("Please enter the specified integers");}
 }
 else if(answer == "random")
@@ -61,7 +60,7 @@ else if(answer == "random")
   int mode = stoi(strMode,nullptr);
   
   if((boundary == 1 || boundary == 2 || boundary == 3) && (mode == 1 || mode == 2 || mode == 3)){
-    gL.GameofLife(boundary,mode,numRow,numColumn,density);}
+    GameofLife gL(boundary,mode,numRow,numColumn,density);}
   else{ throw invalid_argument("Please enter the specified integers");}
 } 
 else{
