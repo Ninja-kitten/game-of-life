@@ -19,8 +19,6 @@ void GameBoard::setParam(int r, int c){//A function that acts a "reconstructor".
   for(int i = 0; i < rows+2 ;++i){
     board[i] = new char [columns+2];
   }
-  cout<<"rows:"<<board.length()<<endl;
-  cout<<"columns:"<<board[columns+1].length()<<endl;
 }
 GameBoard::~GameBoard(){//destructor
   //destroy
