@@ -128,7 +128,7 @@ void GameofLife::nextGen(){
   copyBoard();
 }
 
-void playGame(){
+void GameofLife::playGame(){
 	int generation = 0;
 	//PrintBoard
 	while(!oldBoard.isEqual(newBoard)){
@@ -257,7 +257,7 @@ void GameofLife::copyBoard(){
 	}
 }
 
-string genString(int r){
+string GameofLife::genString(int r){
 	string str;
 	for(int j = 1; j<=column; ++j)
 	{
@@ -265,7 +265,7 @@ string genString(int r){
 	}
 	return str;
 }
-void appendFile(){
+void GameofLife::appendFile(){
 	ofstream fileoutput(filename, std::ofstream::app);
 	string str;
 	for(int i = 1; i<=row; ++i){
@@ -274,7 +274,7 @@ void appendFile(){
 	}
 	fileoutput.close();
 }
-void printBoard(){
+void GameofLife::printBoard(){
 	string str;
 	for(int i = 1; i<=row; ++i){
 		str = genString(i);
