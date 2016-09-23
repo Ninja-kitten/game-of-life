@@ -14,30 +14,43 @@ GameofLife::GameofLife(){//Default constructor. If no parameters are specified.
 }
 GameofLife::GameofLife(int bound, int disp, int r, int c, float d){//Overloaded constructor to start setting up the game if user
 								   //specifies that they want random generations instead of using a file.
+    int p = 0;
     oldBoard.setParam(r,c);//Setting the sizes of the old and new boards. 2 boards used for creating new generations.
+    cout<<p++<<endl;
     newBoard.setParam(r,c);
+    cout<<p++<<endl;
     boundary = bound;
+    cout<<p++<<endl;
     display = disp;
+    cout<<p++<<endl;
     switch(bound){//Figuring out what boundaries the user would like to see
       case 1:
+      cout<<p++<<endl;
             classicFill();
         break;
       case 2:  
+      cout<<p++<<endl;
         break;
       case 3:  
+      cout<<p++<<endl;
 	mirrorFill();
         break;
       default: cout<<"The value you input is not 1,2 or 3."<<endl;
     }
     
     int count = r*c*int(d);//Area of the board times the density gives the number of possible X's available to use
+    cout<<p++<<endl;
     int random;
+    cout<<p++<<endl;
     while(count>0){//As long as the count is more than zero, this loop will fill the board as pseudorandomly as possible
+        cout<<p++<<endl;
         random = rand()%10+1;
         for(int i =1; i <= c; ++i){
             for(int j=1; j <=r; ++j){
                 if(random > 5){//When the random number generated is greater than 5 we fill that cell 
+                   cout<<p++<<endl;
                     oldBoard.setCell(i,j,'X');
+                cout<<p++<<endl;
                 newBoard.setCell(i,j,'X');    
 		count--;//decrement the count value till 0
                 }
@@ -46,8 +59,10 @@ GameofLife::GameofLife(int bound, int disp, int r, int c, float d){//Overloaded 
     }
     if(boundary == 2){//Outside of the switch statement because needed to fill the board before we could wrap it
     	doughnutFill();
+    	cout<<p++<<endl;
     }
     copyBoard();
+    cout<<p++<<endl;
 }
 
 GameofLife::GameofLife(int bound, int disp, string file){//Constructor for if the user specifies a file to read. They still specify
