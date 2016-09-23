@@ -1,7 +1,7 @@
 #include "GameofLife.h"
 #include <iostream>
 #include <fstream>
-#include <stdexcept
+#include <stdexcept>
 #include <string>
 using namespace std;
 
