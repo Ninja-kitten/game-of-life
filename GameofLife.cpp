@@ -102,7 +102,7 @@ GameofLife::~GameofLife(){
 }
 void GameofLife::nextGen(){
   for(int i = 1; i<=row; ++i){
-    for(int j = 1; j<=oldBoard.column;++j){
+    for(int j = 1; j<=column;++j){
       if (oldBoard.countNeighbors(i,j)<=1)
       {
         newBoard.setCell(i,j,'-');
@@ -111,7 +111,7 @@ void GameofLife::nextGen(){
       {
         newBoard.setCell(i,j,'X');
       }
-      else if (oldboard.countNeighbors(i,j)>=4)
+      else if (oldBoard.countNeighbors(i,j)>=4)
       {
         newBoard.setCell(i,j,'-');
       }
@@ -174,16 +174,16 @@ void playGame(){
 void GameofLife::mirrorFill(){
 for(int i = 0; i<row; ++i){
   oldBoard.setCell(i,0,'X');
-  oldBoard.setCell(i,columns+1,'X');
+  oldBoard.setCell(i,column+1,'X');
   newBoard.setCell(i,0,'X');
-  newBoard.setCell(i,columns+1,'X');
+  newBoard.setCell(i,column+1,'X');
 }
   for(int j = 0; j<column;++j)
   {
     oldBoard.setCell(0,j,'X');
-    oldBoard.setCell(rows+1,j,'X');
+    oldBoard.setCell(row+1,j,'X');
     newBoard.setCell(0,j,'X');
-    newBoard.setCell(rows+1,j,'X');
+    newBoard.setCell(row+1,j,'X');
   }
 }
 
