@@ -11,6 +11,7 @@ GameBoard::GameBoard(int r, int c){//overloaded constructor to get the gameboard
   for(int i = 0; i < rows+2 ;++i){
     board[i] = new char [columns+2];
   }
+  fillBlank();
 }
 void GameBoard::setParam(int r, int c){//A function that acts a "reconstructor". Idea came from stack exchange.
   rows = r;
@@ -18,6 +19,14 @@ void GameBoard::setParam(int r, int c){//A function that acts a "reconstructor".
   board = new char* [rows+2];
   for(int i = 0; i < rows+2 ;++i){
     board[i] = new char [columns+2];
+  }
+}
+
+void GameBoard::fillBlank(){
+  for(int i = 0; i<rows+2; ++i){
+    for(int j = 0; j<columns+2; ++j){
+      board[i][j]='-';
+    }
   }
 }
 GameBoard::~GameBoard(){//destructor
