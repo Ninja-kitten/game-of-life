@@ -6,7 +6,7 @@ GameofLife();
 GameofLife(int bound,int disp, int r, int c, float d);
 //Constructor for random configuration
 
-GameofLife(int bound,int disp, const char* file);
+GameofLife(int bound,int disp, std::string file);
 //constructor for uploaded map with std::string type argument for filename
 
 ~GameofLife();
@@ -40,7 +40,7 @@ int display;
 //
 int row;
 int column;
-const char* filename;
+std::string filename;
 GameBoard oldBoard;
 //Gameboard before the generation change
 GameBoard newBoard;
