@@ -107,8 +107,7 @@ GameofLife::GameofLife(int bound, int disp, string file){//Constructor for if th
 }
 
 GameofLife::~GameofLife(){
-    delete &oldBoard;
-    delete &newBoard;
+   
 }
 void GameofLife::nextGen(){
   for(int i = 1; i<=row; ++i){
