@@ -25,7 +25,8 @@ if(answer == "file")
   int boundary = stoi(strboundary,nullptr);
   
   cout<< "To determine the type of display, please enter: 1 for Pause, 2 for Enter or 3 for File." << endl;
-  cin >> string strMode;
+  string strMode;
+  cin >> strMode;
   int mode = stoi(strMode,nullptr);
   
   if((boundary == 1 || boundary == 2 || boundary == 3) && (mode == 1 || mode == 2 || mode == 3)){
@@ -35,15 +36,18 @@ if(answer == "file")
 else if(answer == "random")
 {
   cout << "Please enter the number of rows you'd like in your grid: "<<endl;
-  cin >> string strnumRow;
+  string strnumRow;
+  cin >> strnumRow;
   int numRow = stoi(strnumRow,nullptr);
   
   cout << "Please enter the number of columns you'd like in your grid: "<<endl;
-  cin >> string strnumCol;
+  string strnumCol;
+  cin >> strnumCol;
   int numCol = stoi(strnumCol,nullptr);
   
   cout << "Please enter a number and number between 0 and 1 to represent the density of filled spaces in your grid: "<< endl;
-  cin >> string strdensity;
+  string strdensity;
+  cin >> strdensity;
   float density = stof(strdensity,nullptr);
   
   cout << "To determine the type of boundary, please enter: 1 for Classic, 2 for Doughnut or 3 for Mirror."<< endl;
