@@ -22,7 +22,7 @@ void GameBoard::setParam(int r, int c){//A function that acts a "reconstructor".
 }
 GameBoard::~GameBoard(){//destructor
   //destroy
-  for (int i = 0 i<rows+2;++i){
+  for (int i = 0;i<rows+2;++i){
     delete[] board[i];
   }
   delete board;
