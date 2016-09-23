@@ -18,6 +18,8 @@ GameofLife::GameofLife(int bound, int disp, int r, int c, float d){//Overloaded 
     newBoard.setParam(r,c);
     boundary = bound;
     display = disp;
+    row = r;
+    column = c;
     switch(bound){//Figuring out what boundaries the user would like to see
       case 1:
                  classicFill();
