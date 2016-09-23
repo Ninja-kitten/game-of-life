@@ -64,7 +64,7 @@ GameofLife::GameofLife(int bound, int disp, string file){
       default: cout<<"The value you input is not 1,2 or 3."<<endl;
     }
     filename = file;
-    ifstream readfile(filename);
+    ifstream readfile(filename.c_str());
     string r;
     string c;
     getline(readfile,r)
@@ -75,8 +75,8 @@ GameofLife::GameofLife(int bound, int disp, string file){
     //read the second line which is the number of columns
     column = stoi(c,nullptr)
     //convert to integer
-    oldBoard.setParam(r,c);
-    newBoard.setParam(r,c);
+    oldBoard.setParam(row,column);
+    newBoard.setParam(row,column);
     string str;
     int i = 1;
     char c = ' ';
