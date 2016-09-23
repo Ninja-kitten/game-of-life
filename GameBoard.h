@@ -2,8 +2,8 @@
 #define GAMEBOARD_H
 class GameBoard{
 public:
-GameBoard();
-GameBoard(int,int);
+GameBoard();//Default constructor
+GameBoard(int,int); //Overloaded constructor that takes in integer parameters to specify the gameboard size
 ~GameBoard();
 
 
