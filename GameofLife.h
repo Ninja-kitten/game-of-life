@@ -33,6 +33,7 @@ std::string genString(int r);
 
 void appendFile(std::string line);
 
+void printBoard();
 private:
 int boundary;
 //chooses the boundary taurus 
