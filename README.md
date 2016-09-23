@@ -24,3 +24,4 @@ program.
 Resources:
 -Added the ifndef etc. based on the suggestions of my friend Rio.
 -Sleep(), setParam() and cin.get() additions based off answers found on cplusplus forums
+-std::stoi() and stof() functions also found on cplusplus
