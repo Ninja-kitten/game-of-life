@@ -61,7 +61,9 @@ else if(answer == "random")
   int mode = stoi(strMode,nullptr);
   
   if((boundary == 1 || boundary == 2 || boundary == 3) && (mode == 1 || mode == 2 || mode == 3)){
-    GameofLife gL(boundary,mode,numRow,numCol,density);}
+    GameofLife gL(boundary,mode,numRow,numCol,density);
+    gL.printBoard();
+  }
   else{ throw invalid_argument("Please enter the specified integers");}
 } 
 else{
