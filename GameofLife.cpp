@@ -6,6 +6,7 @@
 #include <cstdlib>
 #include <time.h>
 #include <unistd.h>
+#include <fstream>
 using namespace std;
 GameofLife::GameofLife(){
 	cout<<"I have literally no idea what you expect me to do..."<<endl;
@@ -48,7 +49,7 @@ GameofLife::GameofLife(int bound, int disp, int r, int c, float d){
     copyBoard();
 }
 
-GameofLife::GameofLife(int bound, int disp, const char* file){
+GameofLife::GameofLife(int bound, int disp, string file){
     boundary = bound;
     display = disp;
     switch(bound){
@@ -63,8 +64,7 @@ GameofLife::GameofLife(int bound, int disp, const char* file){
       default: cout<<"The value you input is not 1,2 or 3."<<endl;
     }
     filename = file;
-    ifstream readfile;
-    readfile.open(filename);
+    ifstream readfile(filename);
     string r;
     string c;
     getline(readfile,r)
