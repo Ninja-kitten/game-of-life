@@ -40,10 +40,12 @@ GameofLife::GameofLife(int bound, int disp, int r, int c, float d){//Overloaded 
             for(int j=1; j <=r; ++j){
                 if(random > 5){//When the random number generated is greater than 5 we fill that cell 
                     oldBoard.setCell(i,j,'X');
-                    newBoard.setCell(i,j,'X');    
-		count--;//decrement the count value till 0
+                    newBoard.setCell(i,j,'X');
+                    count--;//decrement the count value till 0
+                    break;
                 }
             }
+            break;
         }
     }
     if(boundary == 2){//Outside of the switch statement because needed to fill the board before we could wrap it
@@ -213,12 +215,15 @@ for(int j = 0; j<2+column;++j)
 
 //fills the buffer zone for doughnut mode
 void GameofLife::doughnutFill(){
-  char c = ' ';
+  char c;
   //take care of all the corners
   c = newBoard.getCell(1,1);
+  cout<<"got cell (1,1)"<<endl;
   newBoard.setCell(row+1,column+1,c);
+  cout<<"set cell 6,6"<<endl;
   c= newBoard.getCell(1,column);
   newBoard.setCell(row+1,0,c);
+  cout<<"set cell 6,0"<<endl;
   c= newBoard.getCell(row,1);
   newBoard.setCell(0,column+1,c);
   c = newBoard.getCell(row,column);
