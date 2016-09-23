@@ -32,6 +32,7 @@ GameofLife::GameofLife(int bound, int disp, int r, int c, float d){//Overloaded 
     
     int count = r*c*int(d);//Area of the board times the density gives the number of possible X's available to use
     int random;
+    cout<<"count is\t"<<count<<endl;
     while(count>0){//As long as the count is more than zero, this loop will fill the board as pseudorandomly as possible
         random = rand()%10+1;
 	cout<<"random var generated"<<endl;
