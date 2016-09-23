@@ -15,7 +15,7 @@ GameofLife::GameofLife(){//Default constructor. If no parameters are specified.
 GameofLife::GameofLife(int bound, int disp, int r, int c, float d){//Overloaded constructor to start setting up the game if user
 								   //specifies that they want random generations instead of using a file.
     oldBoard.setParam(r,c);//Setting the sizes of the old and new boards. 2 boards used for creating new generations.
-    newBoard.setParam(r,c);
+    newBoard.setParam(rdough,c);
     boundary = bound;
     display = disp;
     switch(bound){//Figuring out what boundaries the user would like to see
@@ -30,7 +30,7 @@ GameofLife::GameofLife(int bound, int disp, int r, int c, float d){//Overloaded 
       default: cout<<"The value you input is not 1,2 or 3."<<endl;
     }
     
-    int count = r*c*int(d);//Area of the board times the density gives the number of possible X's available to use
+    int count = (float)r*(float)c*d;//Area of the board times the density gives the number of possible X's available to use
     int random;
     cout<<"count is\t"<<count<<endl;
     while(count>0){//As long as the count is more than zero, this loop will fill the board as pseudorandomly as possible
@@ -219,6 +219,8 @@ void GameofLife::doughnutFill(){
   //take care of all the corners
   c = newBoard.getCell(1,1);
   cout<<"got cell (1,1)"<<endl;
+  cout<<row+1<<endl;
+  cout<<column+1<<endl;
   newBoard.setCell(row+1,column+1,c);
   cout<<"set cell 6,6"<<endl;
   c= newBoard.getCell(1,column);
