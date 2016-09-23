@@ -69,11 +69,11 @@ GameofLife::GameofLife(int bound, int disp, string file){
     string c;
     getline(readfile,r);
     //get the first line from the file which is the number of rows
-    row = stoi(r,nullptr);
+    row = std::stoi(r,nullptr);
     //convert to integer
     getline(readfile,c);
     //read the second line which is the number of columns
-    column = stoi(c,nullptr);
+    column = std::stoi(c,nullptr);
     //convert to integer
     oldBoard.setParam(row,column);
     newBoard.setParam(row,column);
@@ -97,8 +97,8 @@ GameofLife::GameofLife(int bound, int disp, string file){
 }
 
 GameofLife::~GameofLife(){
-    delete oldBoard;
-    delete newBoard;
+    delete &oldBoard;
+    delete &newBoard;
 }
 void GameofLife::nextGen(){
   for(int i = 1; i<=row; ++i){
