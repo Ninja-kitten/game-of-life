@@ -43,14 +43,11 @@ GameofLife::GameofLife(int bound, int disp, int r, int c, float d){//Overloaded 
     int random;
     cout<<p++<<endl;
     while(count>0){//As long as the count is more than zero, this loop will fill the board as pseudorandomly as possible
-        cout<<p++<<endl;
         random = rand()%10+1;
         for(int i =1; i <= c; ++i){
             for(int j=1; j <=r; ++j){
                 if(random > 5){//When the random number generated is greater than 5 we fill that cell 
-                   cout<<p++<<endl;
                     oldBoard.setCell(i,j,'X');
-                cout<<p++<<endl;
                 newBoard.setCell(i,j,'X');    
 		count--;//decrement the count value till 0
                 }
