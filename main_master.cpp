@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-public main(int argc, char** argv){
+int main(int argc, char** argv){
 
 GameOfLife gL;
 
