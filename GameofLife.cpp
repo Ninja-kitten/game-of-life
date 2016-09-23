@@ -8,16 +8,17 @@
 #include <unistd.h>
 #include <fstream>
 using namespace std;
-GameofLife::GameofLife(){
+GameofLife::GameofLife(){//Default constructor. If no parameters are specified.
 	cout<<"I have literally no idea what you expect me to do..."<<endl;
 	throw;
 }
-GameofLife::GameofLife(int bound, int disp, int r, int c, float d){
-    oldBoard.setParam(r,c);
+GameofLife::GameofLife(int bound, int disp, int r, int c, float d){//Overloaded constructor to start setting up the game if user
+								   //specifies that they want random generations instead of using a file.
+    oldBoard.setParam(r,c);//Setting the sizes of the old and new boards. 2 boards used for creating new generations.
     newBoard.setParam(r,c);
     boundary = bound;
     display = disp;
-    switch(bound){
+    switch(bound){//Figuring out what boundaries the user would like to see
       case 1:
             classicFill();
         break;
@@ -29,30 +30,31 @@ GameofLife::GameofLife(int bound, int disp, int r, int c, float d){
       default: cout<<"The value you input is not 1,2 or 3."<<endl;
     }
     
-    int count = r*c*d;
+    int count = r*c*int(d);//Area of the board times the density gives the number of possible X's available to use
     int random;
-    while(count>0){
+    while(count>0){//As long as the count is more than zero, this loop will fill the board as pseudorandomly as possible
         random = rand()%10+1;
         for(int i =1; i <= c; ++i){
             for(int j=1; j <=r; ++j){
-                if(random > 5){
+                if(random > 5){//When the random number generated is greater than 5 we fill that cell 
                     oldBoard.setCell(i,j,'X');
                 newBoard.setCell(i,j,'X');    
-		count--;
+		count--;//decrement the count value till 0
                 }
             }
         }
     }
-    if(boundary == 2){
+    if(boundary == 2){//Outside of the switch statement because needed to fill the board before we could wrap it
     	doughnutFill();
     }
     copyBoard();
 }
 
-GameofLife::GameofLife(int bound, int disp, string file){
+GameofLife::GameofLife(int bound, int disp, string file){//Constructor for if the user specifies a file to read. They still specify
+							// the boundary mode and display settings
     boundary = bound;
     display = disp;
-    switch(bound){
+    switch(bound){//User specifies the boundary mode
       case 1:
             classicFill();
         break;
@@ -64,7 +66,7 @@ GameofLife::GameofLife(int bound, int disp, string file){
       default: cout<<"The value you input is not 1,2 or 3."<<endl;
     }
     filename = file;
-    ifstream readfile(filename.c_str());
+    ifstream readfile(filename.c_str());//ifstream to read the file as input
     string r;
     string c;
     getline(readfile,r);
@@ -75,7 +77,7 @@ GameofLife::GameofLife(int bound, int disp, string file){
     //read the second line which is the number of columns
     column = std::stoi(c,nullptr);
     //convert to integer
-    oldBoard.setParam(row,column);
+    oldBoard.setParam(row,column);//setting the old and new boards up.
     newBoard.setParam(row,column);
     string str;
     int i = 1;
