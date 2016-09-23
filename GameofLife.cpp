@@ -79,14 +79,14 @@ GameofLife::GameofLife(int bound, int disp, string file){
     newBoard.setParam(row,column);
     string str;
     int i = 1;
-    char c = ' ';
+    char d = ' ';
     while(getline(readfile,str))
     {
 	    for( int j = 1; j<column+1;++j)
 	    {
-	        c = str[j-1];
-		oldBoard.setCell(i,j,c);
-		newBoard.setCell(i,j,c);
+	        d = str[j-1];
+		oldBoard.setCell(i,j,d);
+		newBoard.setCell(i,j,d);
 	    }
 	    i++;
     }
