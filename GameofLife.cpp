@@ -56,17 +56,7 @@ GameofLife::GameofLife(int bound, int disp, string file){//Constructor for if th
 							// the boundary mode and display settings
     boundary = bound;
     display = disp;
-    switch(bound){//User specifies the boundary mode
-      case 1:
-            classicFill();
-        break;
-      case 2:  
-	break;
-      case 3:  
-	mirrorFill();
-        break;
-      default: cout<<"The value you input is not 1,2 or 3."<<endl;
-    }
+   
     ifstream readfile(file.c_str());//ifstream to read the file as input
     while(!readfile){
 	    cout<<"Not a valid entry. Please enter a valid file"<<endl;
@@ -98,11 +88,19 @@ GameofLife::GameofLife(int bound, int disp, string file){//Constructor for if th
 	    }
 	    i++;
     }
-	
-	if(boundary == 2){
-		doughnutFill();
-		copyBoard();
-	}
+	 switch(bound){//User specifies the boundary mode
+      case 1:
+            classicFill();
+        break;
+      case 2:  
+	doughnutFill();
+	copyBoard();			 
+	break;
+      case 3:  
+	mirrorFill();
+        break;
+      default: cout<<"The value you input is not 1,2 or 3."<<endl;
+    }
 	ofstream fileoutput;
 	fileoutput.open("kasthuritran.out");
 	fileoutput<<"Welcome to the game of life \n";
