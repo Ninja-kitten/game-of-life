@@ -33,9 +33,11 @@ void GameBoard::fillBlank(){
 GameBoard::~GameBoard(){//destructor
   //destroy
   for (int i = 0;i<rows+2;++i){
-    delete[] board[i];
+    for(int j = 0; j<columns+2;++j){
+      delete board[i][j];}
+      delete[] board[i];
   }
-  delete board;
+  delete[] board;
 }
 
 int GameBoard::countNeighbors(int i, int j){//Function to count the live neighbors around the cell that is specified
