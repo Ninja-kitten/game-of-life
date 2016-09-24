@@ -67,8 +67,12 @@ GameofLife::GameofLife(int bound, int disp, string file){//Constructor for if th
         break;
       default: cout<<"The value you input is not 1,2 or 3."<<endl;
     }
-    filename = file;
-    ifstream readfile(filename.c_str());//ifstream to read the file as input
+    ifstream readfile(file.c_str());//ifstream to read the file as input
+    while(!ifstream){
+	    cout<<"Not a valid entry. Please enter a valid file"<<endl;
+	    cin>>file;
+	    ifstream readfile(file.c_str());
+    }
     string r;
     string c;
     getline(readfile,r);
@@ -94,10 +98,15 @@ GameofLife::GameofLife(int bound, int disp, string file){//Constructor for if th
 	    }
 	    i++;
     }
-	copyBoard();
+	
 	if(boundary == 2){
 		doughnutFill();
+		copyBoard();
 	}
+	ofstream fileoutput;
+	fileoutput.open("kasthuritran.out")
+	fileoutput<<"Welcome to the game of life \n";
+	fileoutput.close();
 }
 
 GameofLife::~GameofLife(){
@@ -140,7 +149,6 @@ void GameofLife::playGame(){
 		      	cout<<"Generation #:\t"<<generation<<endl;
 		      	printBoard();
 		      	sleep(5);
-		      	cout<< "we good for the sleep"<<endl;
 		      //give 5 sec between
 		      //Sakthi
 		      break;
@@ -154,10 +162,12 @@ void GameofLife::playGame(){
 		      	cin.get();
 		      //wait for cue
 		      //Tristan
-		      	cout<<"we good for now"<<endl;
 		      	break;
 		      
 		      case 3:
+			ofstream fileoutput;
+			fileoutput.open("kasthuritran.out", std::ofstream::app);
+			fileoutput<<"Generation #:\t"<<generation<<endl;
 		      	appendFile();
 		      //append to file.
 		      //whoever draws a short straw....
@@ -276,7 +286,7 @@ string GameofLife::genString(int r){
 }
 void GameofLife::appendFile(){
 	ofstream fileoutput;
-	fileoutput.open(filename, std::ofstream::app);
+	fileoutput.open("kasthuritran.out", std::ofstream::app);
 	for(int i=1; i<row+1; ++i){
 		for(int j = 1; j<column+1;++j){
 			fileoutput<<oldBoard.getCell(i,j);
