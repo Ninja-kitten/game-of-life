@@ -155,11 +155,12 @@ void GameofLife::playGame(){
 		      
 		      case 2:
 		      	//Print board
-		      	cout<<"Generation #:\t"<<generation<<endl;
-		      	printBoard();
 		      	cout<<"Press any key to continue:"<<endl;
 		      	//cin.ignore();
 		      	cin.get();
+			cout<<"Generation #:\t"<<generation<<endl;
+		      	printBoard();
+		      	
 		      //wait for cue
 		      //Tristan
 		      	break;
@@ -176,10 +177,13 @@ void GameofLife::playGame(){
 		      	break;
 		      default: cout<<"The value you input is not 1,2 or 3."<<endl;
     		}
-    		if(newBoard.isEmpty()){break;}
+    		if(newBoard.isEmpty()){
+			cout<<"Everyone Died!"<<endl;
+			break;}
     		nextGen();
 		generation++;
 	}while(!oldBoard.isEqual(newBoard));
+	cout<<"GAME OVER!!!"<<endl;
 }
 
 //fill the buffer zone for mirror mode
