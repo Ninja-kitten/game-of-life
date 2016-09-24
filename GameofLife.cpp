@@ -14,12 +14,13 @@ GameofLife::GameofLife(){//Default constructor. If no parameters are specified.
 }
 GameofLife::GameofLife(int bound, int disp, int r, int c, float d){//Overloaded constructor to start setting up the game if user
 								   //specifies that they want random generations instead of using a file.
-    oldBoard.setParam(r,c);//Setting the sizes of the old and new boards. 2 boards used for creating new generations.
-    newBoard.setParam(r,c);
-    boundary = bound;
-    display = disp;
     row = r;
     column = c;
+    boundary = bound;
+    display = disp;
+    oldBoard.setParam(r,c);//Setting the sizes of the old and new boards. 2 boards used for creating new generations.
+    newBoard.setParam(r,c);
+	printBoard();
     switch(bound){//Figuring out what boundaries the user would like to see
       case 1:
                  classicFill();
