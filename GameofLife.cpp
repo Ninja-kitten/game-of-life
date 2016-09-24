@@ -150,7 +150,7 @@ void GameofLife::playGame(){
 		      	cout<<"Generation #:\t"<<generation<<endl;
 		      	printBoard();
 		      	cout<<"Press any key to continue:"<<endl;
-		      	cin.ignore();
+		      	//cin.ignore();
 		      	cin.get();
 		      //wait for cue
 		      //Tristan
