@@ -294,5 +294,4 @@ void GameofLife::printBoard(){
 		}
 		cout<<endl;
 	}
-	cout<< "made a string"<<endl;
 }
