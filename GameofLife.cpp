@@ -16,6 +16,7 @@ GameofLife::GameofLife(int bound, int disp, int r, int c, float d){//Overloaded 
 								   //specifies that they want random generations instead of using a file.
     oldBoard.setParam(r,c);//Setting the sizes of the old and new boards. 2 boards used for creating new generations.
     newBoard.setParam(r,c);
+    printBoard();
     boundary = bound;
     display = disp;
     row = r;
