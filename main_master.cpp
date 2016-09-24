@@ -88,7 +88,7 @@ else if(answer == "random"||answer == "r"||answer == "R")
   }
   
     GameofLife gL(boundary,mode,numRow,numCol,density);
-    gL.playGame()
+    gL.playGame();
 } 
 else{
  throw invalid_argument("Please enter file or random"); 
