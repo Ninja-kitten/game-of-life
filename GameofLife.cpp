@@ -68,7 +68,7 @@ GameofLife::GameofLife(int bound, int disp, string file){//Constructor for if th
       default: cout<<"The value you input is not 1,2 or 3."<<endl;
     }
     ifstream readfile(file.c_str());//ifstream to read the file as input
-    while(!ifstream){
+    while(!readfile){
 	    cout<<"Not a valid entry. Please enter a valid file"<<endl;
 	    cin>>file;
 	    ifstream readfile(file.c_str());
