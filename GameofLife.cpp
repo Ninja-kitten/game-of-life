@@ -134,11 +134,7 @@ void GameofLife::nextGen(){
 void GameofLife::playGame(){
 	int generation = 0;
 	//PrintBoard
-	while(!oldBoard.isEqual(newBoard)){
-		cout<<"while loop commence"<<endl;
-		nextGen();
-		generation++;
-
+	do{
 		 switch(display){
 		      case 1:
 		      	cout<<"Generation #:\t"<<generation<<endl;
@@ -173,7 +169,9 @@ void GameofLife::playGame(){
 		      default: cout<<"The value you input is not 1,2 or 3."<<endl;
     		}
     		if(newBoard.isEmpty()){break;}
-	}
+    		nextGen();
+		generation++;
+	}while(!oldBoard.isEqual(newBoard));
 }
 
 //fill the buffer zone for mirror mode
