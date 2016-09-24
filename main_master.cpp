@@ -42,7 +42,7 @@ if(answer == "file"||answer == "f"||answer == "F")
   cout << "Please enter the name of the file or the path to the specified text file: " << endl;
   cin >> filename;
   GameofLife gL(boundary,mode, filename);
-  gL.playGame()
+  gL.playGame();
 }
 else if(answer == "random"||answer == "r"||answer == "R")
 {
