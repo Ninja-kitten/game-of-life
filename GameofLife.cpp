@@ -47,8 +47,9 @@ GameofLife::GameofLife(int bound, int disp, int r, int c, float d){//Overloaded 
 
     if(boundary == 2){//Outside of the switch statement because needed to fill the board before we could wrap it
     	doughnutFill();
+    	copyBoard();
     }
-    copyBoard();
+
 }
 
 GameofLife::GameofLife(int bound, int disp, string file){//Constructor for if the user specifies a file to read. They still specify
@@ -134,6 +135,7 @@ void GameofLife::playGame(){
 	int generation = 0;
 	//PrintBoard
 	while(!oldBoard.isEqual(newBoard)){
+		cout<<"while loop commence"<<endl;
 		nextGen();
 		generation++;
 
@@ -142,6 +144,7 @@ void GameofLife::playGame(){
 		      	cout<<"Generation #:\t"<<generation<<endl;
 		      	printBoard();
 		      	sleep(5);
+		      	cout<< "we good for the sleep"<<endl;
 		      //give 5 sec between
 		      //Sakthi
 		      break;
@@ -155,6 +158,7 @@ void GameofLife::playGame(){
 		      	cin.get();
 		      //wait for cue
 		      //Tristan
+		      	cout<<"we good for now"<<endl;
 		      	break;
 		      
 		      case 3:
