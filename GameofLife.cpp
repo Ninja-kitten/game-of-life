@@ -271,7 +271,7 @@ string GameofLife::genString(int r){
 	{
 		c = oldBoard.getCell(r,j);		
 		cout<<c<<"\t Character added to row\t"<<r<<endl;
-		str<<c;
+		str += c;
 	}
 	return str;
 }
