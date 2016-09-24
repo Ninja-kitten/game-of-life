@@ -266,9 +266,12 @@ void GameofLife::copyBoard(){
 
 string GameofLife::genString(int r){
 	string str;
+	char c;
 	for(int j = 1; j<=column; ++j)
 	{
-		str+= oldBoard.getCell(r,j);
+		c = oldBoard.getCell(r,j);		
+		cout<<c<<"\t Character added to row\t"<<r<<endl;
+		str<<c;
 	}
 	return str;
 }
@@ -287,4 +290,5 @@ void GameofLife::printBoard(){
 		str.assign (genString(i));
 		cout<<str<<endl;
 	}
+	cout<< "made a string"<<endl;
 }
