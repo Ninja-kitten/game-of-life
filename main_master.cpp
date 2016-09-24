@@ -9,31 +9,39 @@ int main(int argc, char** argv){
 
 
 cout << "Welcome to the Game of Life!" << endl;
-cout << "Would you like to start by providing a file to run the simulation or would you like a random assignment?"<< endl;
+cout << "Would you like to start by providing a (f)ile to run the simulation or would you like a (r)andom assignment?"<< endl;
 cout << "Please enter 'file' or 'random' to start the setup." << endl;
 string answer;
 cin >> answer;
-if(answer == "file")
+if(answer == "file"||answer == "f"||answer == "F")
 {
+  
+  cout << "To determine the type of boundary, please enter: (1) for Classic, (2) for Doughnut or (3) for Mirror."<< endl;
+  string strboundary;
+  cin >> strboundary;
+  while(strboundary != "1" || strboundary != "2" || strboundary != "3"){
+    cout << "Invalid argument \n To determine the type of boundary, please enter: (1) for Classic, (2) for Doughnut or (3) for Mirror."<< endl;  
+    cin >> strboundary;
+  }
+  int boundary = stoi(strboundary,nullptr);
+  
+  cout<< "To determine the type of display, please enter: (1) for Pause, (2) for Enter or (3) for File." << endl;
+  string strMode;
+  cin >> strMode;
+  while(strMode != "1" || strMode != "2" || strMode != "3"){
+    cout << "Invalid argument \n To determine the type of display, please enter: (1) for Pause, (2) for Enter or (3) for File." << endl;
+    cin >> strMode
+  }
+  int mode = stoi(strMode,nullptr);
+  
   string filename;
   cout << "Please enter the name of the file: " << endl;
   cin >> filename;
-  
-  cout << "To determine the type of boundary, please enter: 1 for Classic, 2 for Doughnut or 3 for Mirror."<< endl;
-  string strboundary;
-  cin >> strboundary;
-  int boundary = stoi(strboundary,nullptr);
-  
-  cout<< "To determine the type of display, please enter: 1 for Pause, 2 for Enter or 3 for File." << endl;
-  string strMode;
-  cin >> strMode;
-  int mode = stoi(strMode,nullptr);
-  
   if((boundary == 1 || boundary == 2 || boundary == 3) && (mode == 1 || mode == 2 || mode == 3)){
     GameofLife gL(boundary,mode, filename);}
   else{ throw invalid_argument("Please enter the specified integers");}
 }
-else if(answer == "random")
+else if(answer == "random"||answer == "r"||answer == "R")
 {
   cout << "Please enter the number of rows you'd like in your grid: "<<endl;
   string strnumRow;
