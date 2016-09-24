@@ -276,19 +276,22 @@ string GameofLife::genString(int r){
 	return str;
 }
 void GameofLife::appendFile(){
-	ofstream fileoutput(filename, std::ofstream::app);
-	string str;
-	for(int i = 1; i<=row; ++i){
-		str = genString(i);
-		fileoutput<<str<<endl;
+	ofstream fileoutput;
+	fileoutput.open(filename, std::ofstream::app);
+	for(int i=1; i<row+1; ++i){
+		for(int j = 1; j<column+1){
+			fileoutput<<oldBoard.getCell(i,j);
+		}
+		fileoutput<<endl;
 	}
 	fileoutput.close();
 }
 void GameofLife::printBoard(){
-	string str;
-	for(int i = 1; i<=row; ++i){
-		str.assign (genString(i));
-		cout<<str<<endl;
+	for(int i=1; i<row+1; ++i){
+		for(int j = 1; j<column+1){
+			cout<<oldBoard.getCell(i,j);
+		}
+		cout<<endl;
 	}
 	cout<< "made a string"<<endl;
 }
