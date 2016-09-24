@@ -19,6 +19,7 @@ void GameBoard::setParam(int r, int c){//A function that acts a "reconstructor".
   board = new char* [rows+2];
   for(int i = 0; i < rows+2 ;++i){
     board[i] = new char [columns+2];
+    fillBlank();
   }
 }
 
