@@ -25,7 +25,7 @@ if(answer == "file"||answer == "f"||answer == "F")
   cout << "To determine the type of boundary, please enter: (1) for Classic, (2) for Doughnut or (3) for Mirror."<< endl;
   int boundary;
   cin >> boundary;
-  while(boundary != 1 || boundary != 2 || boundary != 3){
+  while(boundary != 1 && boundary != 2 && boundary != 3){
     cout << "Invalid argument \n To determine the type of boundary, please enter: (1) for Classic, (2) for Doughnut or (3) for Mirror."<< endl;  
     cin >> boundary;
   }
@@ -33,7 +33,7 @@ if(answer == "file"||answer == "f"||answer == "F")
   cout<< "To determine the type of display, please enter: (1) for Pause, (2) for Enter or (3) for File." << endl;
   int mode;
   cin >> mode;
-  while(mode != 1 || mode != 2 || mode != 3){
+  while(mode != 1 && mode != 2 && mode != 3){
     cout << "Invalid argument \n To determine the type of display, please enter: (1) for Pause, (2) for Enter or (3) for File." << endl;
     cin >> mode;
   }
@@ -74,7 +74,7 @@ else if(answer == "random"||answer == "r"||answer == "R")
   cout << "To determine the type of boundary, please enter: (1) for Classic, (2) for Doughnut or (3) for Mirror."<< endl;
   int boundary;
   cin >> boundary;
-  while(boundary != 1 || boundary != 2 || boundary != 3){
+  while(boundary != 1 && boundary != 2 && boundary != 3){
     cout << "Invalid argument \n To determine the type of boundary, please enter: (1) for Classic, (2) for Doughnut or (3) for Mirror."<< endl;  
     cin >> boundary;
   }
@@ -82,7 +82,7 @@ else if(answer == "random"||answer == "r"||answer == "R")
   cout<< "To determine the type of display, please enter: (1) for Pause, (2) for Enter or (3) for File." << endl;
   int mode;
   cin >> mode;
-  while(mode != 1 || mode != 2 || mode != 3){
+  while(mode != 1 && mode != 2 && mode != 3){
     cout << "Invalid argument \n To determine the type of display, please enter: (1) for Pause, (2) for Enter or (3) for File." << endl;
     cin >> mode;
   }
