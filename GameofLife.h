@@ -31,7 +31,7 @@ void copyBoard();
 
 std::string genString(int r);
 
-void appendFile();
+void appendFile(int);
 
 void printBoard();
 private:
