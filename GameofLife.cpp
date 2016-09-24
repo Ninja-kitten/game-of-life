@@ -276,7 +276,7 @@ void GameofLife::appendFile(){
 	ofstream fileoutput;
 	fileoutput.open(filename, std::ofstream::app);
 	for(int i=1; i<row+1; ++i){
-		for(int j = 1; j<column+1){
+		for(int j = 1; j<column+1;++j){
 			fileoutput<<oldBoard.getCell(i,j);
 		}
 		fileoutput<<endl;
@@ -285,7 +285,7 @@ void GameofLife::appendFile(){
 }
 void GameofLife::printBoard(){
 	for(int i=1; i<row+1; ++i){
-		for(int j = 1; j<column+1){
+		for(int j = 1; j<column+1;++j){
 			cout<<oldBoard.getCell(i,j);
 		}
 		cout<<endl;
