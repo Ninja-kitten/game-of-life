@@ -41,7 +41,7 @@ GameBoard::~GameBoard(){//destructor
 */}
 
 int GameBoard::countNeighbors(int i, int j){//Function to count the live neighbors around the cell that is specified
-    int count;
+    int count=0;
     for(int k=i-1; k<=i+1; ++k)//nested forloop to check the surrounding 8 neighbors
      {
       for(int l=j-1; l<=j+1; ++l)
