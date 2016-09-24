@@ -47,6 +47,7 @@ int GameBoard::countNeighbors(int i, int j){//Function to count the live neighbo
               { ++count;}
           }
       }
+      return count;
 }
 
 int GameBoard::getRows(){//gets the number of rows
