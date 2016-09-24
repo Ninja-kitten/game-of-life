@@ -104,7 +104,7 @@ GameofLife::GameofLife(int bound, int disp, string file){//Constructor for if th
 		copyBoard();
 	}
 	ofstream fileoutput;
-	fileoutput.open("kasthuritran.out")
+	fileoutput.open("kasthuritran.out");
 	fileoutput<<"Welcome to the game of life \n";
 	fileoutput.close();
 }
