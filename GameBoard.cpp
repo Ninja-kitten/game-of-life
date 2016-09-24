@@ -24,11 +24,11 @@ void GameBoard::setParam(int r, int c){//A function that acts a "reconstructor".
 }
 
 void GameBoard::fillBlank(){
-  for(int i = 0; i<rows+2; ++i){
+  /*for(int i = 0; i<rows+2; ++i){
     for(int j = 0; j<columns+2; ++j){
       setCell(i,j,'-');
     }
-  }
+  }*/
 }
 GameBoard::~GameBoard(){//destructor
   //destroy
