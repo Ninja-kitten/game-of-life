@@ -34,21 +34,17 @@ GameofLife::GameofLife(int bound, int disp, int r, int c, float d){//Overloaded 
     }
     
     int count = (float)r*(float)c*d;//Area of the board times the density gives the number of possible X's available to use
-    int random;
-    while(count>0){//As long as the count is more than zero, this loop will fill the board as pseudorandomly as possible
-        random = rand()%10+1;
-        for(int i =1; i <= c; ++i){
-            for(int j=1; j <=r; ++j){
-                if(random > 5){//When the random number generated is greater than 5 we fill that cell 
-                    oldBoard.setCell(i,j,'X');
-                    newBoard.setCell(i,j,'X');
-                    count--;//decrement the count value till 0
-                    break;
-                }
-            }
-            break;
+    srand(time(NULL));
+    for (int i = 0; i <count;){
+        int randRow = rand() % row+1;
+        int randCol = rand() % column+1;
+        if(oldBoard.getCell(randRow,randCol)!='X'){
+           oldBoard.setCell(randRow, randCol, 'X');
+           newBoard.setCell(randRow, randCol, 'X');
+           ++i;
+        	}
         }
-    }
+
     if(boundary == 2){//Outside of the switch statement because needed to fill the board before we could wrap it
     	doughnutFill();
     }
