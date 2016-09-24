@@ -25,7 +25,7 @@ void GameBoard::setParam(int r, int c){//A function that acts a "reconstructor".
 void GameBoard::fillBlank(){
   for(int i = 0; i<rows+2; ++i){
     for(int j = 0; j<columns+2; ++j){
-      interSetCell(i,j,'-',board);
+      setCell(i,j,'-');
     }
   }
 }
@@ -61,11 +61,9 @@ char GameBoard::getCell(int i, int j){//gets the value in the specified cell
   return board[i][j];
 }
 void GameBoard::setCell(int i, int j, char k){//sets the value of the specified sell to the character specified by k.
-  interSetCell(i,j,k,board);
+  board[i][j]=k;
 }
-void GameBoard::interSetCell(int i, int j, char k, &char arr[rows+2][columns+2]){
-  arr[i][j]=k;
-}
+
 
 bool GameBoard::isEqual(GameBoard g){//checks if the gameboards are equal in size and character
   if(rows != g.getRows()|| columns != g.getColumns()){
