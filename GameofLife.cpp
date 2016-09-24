@@ -16,7 +16,6 @@ GameofLife::GameofLife(int bound, int disp, int r, int c, float d){//Overloaded 
 								   //specifies that they want random generations instead of using a file.
     oldBoard.setParam(r,c);//Setting the sizes of the old and new boards. 2 boards used for creating new generations.
     newBoard.setParam(r,c);
-    printBoard();
     boundary = bound;
     display = disp;
     row = r;
@@ -35,10 +34,8 @@ GameofLife::GameofLife(int bound, int disp, int r, int c, float d){//Overloaded 
     
     int count = (float)r*(float)c*d;//Area of the board times the density gives the number of possible X's available to use
     int random;
-    cout<<"count is\t"<<count<<endl;
     while(count>0){//As long as the count is more than zero, this loop will fill the board as pseudorandomly as possible
         random = rand()%10+1;
-	cout<<"random var generated"<<endl;
         for(int i =1; i <= c; ++i){
             for(int j=1; j <=r; ++j){
                 if(random > 5){//When the random number generated is greater than 5 we fill that cell 
@@ -53,10 +50,8 @@ GameofLife::GameofLife(int bound, int disp, int r, int c, float d){//Overloaded 
     }
     if(boundary == 2){//Outside of the switch statement because needed to fill the board before we could wrap it
     	doughnutFill();
-    	cout<<"doughnut filled"<<endl;
     }
     copyBoard();
-    cout<<"jelly"<<endl;
 }
 
 GameofLife::GameofLife(int bound, int disp, string file){//Constructor for if the user specifies a file to read. They still specify
@@ -220,14 +215,11 @@ void GameofLife::doughnutFill(){
   char c;
   //take care of all the corners
   c = newBoard.getCell(1,1);
-  cout<<"got cell (1,1)"<<endl;
-  cout<<row+1<<endl;
-  cout<<column+1<<endl;
+  
   newBoard.setCell(row+1,column+1,c);
-  cout<<"set cell 6,6"<<endl;
+
   c= newBoard.getCell(1,column);
   newBoard.setCell(row+1,0,c);
-  cout<<"set cell 6,0"<<endl;
   c= newBoard.getCell(row,1);
   newBoard.setCell(0,column+1,c);
   c = newBoard.getCell(row,column);
@@ -292,7 +284,7 @@ void GameofLife::appendFile(){
 void GameofLife::printBoard(){
 	string str;
 	for(int i = 1; i<=row; ++i){
-		str = genString(i);
+		str.assign (genString(i));
 		cout<<str<<endl;
 	}
 }
