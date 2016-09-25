@@ -29,19 +29,19 @@ void doughnutFill();
 void copyBoard();
 //copies a board to make it another one.
 
-std::string genString(int r);
-
 void appendFile(int);
-
+//appends one generation to the file
 void printBoard();
+//prints out one generation of the board
 private:
 int boundary;
-//chooses the boundary taurus 
+//chooses the boundary 
 int display;
-//
+//choses the display mode
 int row;
 int column;
 std::string filename;
+//filenameparameter
 GameBoard oldBoard;
 //Gameboard before the generation change
 GameBoard newBoard;
