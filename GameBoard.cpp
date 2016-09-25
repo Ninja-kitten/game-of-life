@@ -24,7 +24,7 @@ void GameBoard::setParam(int r, int c){//A function that acts a "reconstructor".
   fillBlank();
 }
 
-void GameBoard::fillBlank(){
+void GameBoard::fillBlank(){//Fills in the entire game board with blank spaces
   for(int i = 0; i<rows+2; ++i){
     for(int j = 0; j<columns+2; ++j){
       setCell(i,j,'-');
