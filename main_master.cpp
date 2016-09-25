@@ -9,11 +9,11 @@ int main(int argc, char** argv){
 
 
 cout << "Welcome to the Game of Life!" << endl;
-cout << "Would you like to start by providing a (f)ile to run the simulation or would you like a (r)andom assignment?"<< endl;
+cout << "Would you like to start by providing a (f)ile or a (p)reset to run the simulation or would you like a (r)andom assignment?"<< endl;
 cout << "Please enter 'file', 'random' or 'preset' to start the setup." << endl;
 string answer;
 cin >> answer;
-while(answer != "file"&& answer != "f" && answer != "F" && answer != "random"&& answer != "r"&& answer != "R"){
+while(answer != "file"&& answer != "f" && answer != "F" && answer != "random"&& answer != "r"&& answer != "R"answer != "P" && answer != "preset"&& answer != "p"){
   cout<< "Invalid argument! Please try again!"<<endl;
   cout << "Would you like to start by providing a (f)ile to run the simulation or would you like a (r)andom assignment?"<< endl;
   cout << "Please enter 'file' or 'random' to start the setup." << endl;
