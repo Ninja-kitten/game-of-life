@@ -99,14 +99,37 @@ else if(answer == "preset" || answer == "p" || answer == "P")
     cout << "Invalid argument \n To determine the type of display, please enter: (1) for Pause, (2) for Enter or (3) for File." << endl;
     cin >> mode;
   }
-  cout<<"Please choose the preset file you'd like to see simulated: (1) for Small Exploder, (2) for Tumbler (3) for Exploder, (4) for 10-cell row or (5) for Spaceship." <<endl; 
+  cout<<"Please choose the preset file you'd like to see simulated: "<<endl; 
+  cout<<"In classic mode:(1) for Small Exploder, (2) for Tumbler (3) for Exploder, (4) for 10-cell row or" << endl;
+  cout<<"In doughnut mode: (5) for Spaceship." <<endl; 
  int presetNum; 
   cin >> presetNum;
+   while(presetNum != 1 && presetNum != 2 && presetNum != 3 && presetNum != 4 && presetNum != 5){
+    cout << "Invalid argument \n To determine the type of display, please enter: \n (1) for Small exploder, (2) for Tumbler, (3) for Exploder, (4) 10-cell row or (5) spaceship" << endl;
+    cin >> presetNum;
+  }
   switch(presetNum){
     case 1:
-      gL.GameofLife(1,mode,Preset_smallExploder.txt);
+      GameofLife gL(1,mode,Preset_smallExploder.txt);
+      gL.playGame();
       break;
-    case
+    case 2:
+      GameofLife gL(1,mode,Preset_tumbler.txt);
+      gL.playGame();
+      break;
+    case 3:
+      GameofLife gL(1,mode,Preset_exploder.txt);
+      gL.playGame();
+      break;
+    case 4:
+      GameofLife gL(1,mode,Preset_tencell.txt);
+      gL.playGame();
+      break;
+    case 5:
+      GameofLife gL(2,mode,Preset_spaceship.txt);
+      gL.playGame();
+      break;
+      
   }
 }
 else{
