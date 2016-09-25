@@ -78,8 +78,9 @@ GameofLife::GameofLife(int bound, int disp, string file){//Constructor for if th
     string str;
     int i = 1;
     char d = ' ';
-    while(getline(readfile,str))
-    {		if (str.length() != column){
+    while(getline(readfile,str))//checking if the input file is valid
+    {		//if the specified grid doesnt match the file-specified rows and columns this will produce an error message
+	    	if (str.length() != column){
     		cout<<"INVALID FILE FORMAT!!! EXTING PROGRAM NOW!!!"<<endl;
 	    	throw;
     		}
@@ -108,7 +109,7 @@ GameofLife::GameofLife(int bound, int disp, string file){//Constructor for if th
         break;
       default: cout<<"The value you input is not 1,2 or 3."<<endl;
     }
-	ofstream fileoutput;
+	ofstream fileoutput;//creating output file to append our game generations to
 	fileoutput.open("kasthuritran.out");
 	fileoutput<<"Welcome to the game of life \n";
 	fileoutput.close();
@@ -117,7 +118,7 @@ GameofLife::GameofLife(int bound, int disp, string file){//Constructor for if th
 GameofLife::~GameofLife(){
    
 }
-void GameofLife::nextGen(){
+void GameofLife::nextGen(){//This method produces the next generation based off of the previous generation and the rules.
   copyBoard();
   for(int i = 1; i<=row; ++i){
     for(int j = 1; j<=column;++j){
@@ -145,30 +146,24 @@ void GameofLife::nextGen(){
   }
 }
 
-void GameofLife::playGame(){
+void GameofLife::playGame(){//Plays the full game based on the input parameters specified.
 	int generation = 0;
-	//PrintBoard
 	do{
 		 switch(display){
 		      case 1:
 		      	cout<<"Generation #:\t"<<generation<<endl;
 		      	printBoard();
 		      	sleep(5);
-		      //give 5 sec between
-		      //Sakthi
-		      break;
+		        	 
+			 break;
 		      
 		      case 2:
 		      	//Print board
 		      	cout<<"Press any key to continue:"<<endl;
-		      	//cin.ignore();
 		      	cin.get();
 			cout<<"Generation #:\t"<<generation<<endl;
 		      	printBoard();
-		      	
-		      //wait for cue
-		      //Tristan
-		      	break;
+		        break;
 		      
 		      case 3:
 			
@@ -268,7 +263,7 @@ void GameofLife::doughnutFill(){
   
 } 
 
-void GameofLife::copyBoard(){
+void GameofLife::copyBoard(){//method to copy the current board
 	char c;
 	for(int i = 0; i<row+2;++i){
 		for(int j = 0; j< column+2; ++j){
@@ -280,18 +275,7 @@ void GameofLife::copyBoard(){
 	}
 }
 
-string GameofLife::genString(int r){
-	string str;
-	char c;
-	for(int j = 1; j<=column; ++j)
-	{
-		c = oldBoard.getCell(r,j);		
-		cout<<c<<"\t Character added to row\t"<<r<<endl;
-		str += c;
-	}
-	return str;
-}
-void GameofLife::appendFile(int generation){
+void GameofLife::appendFile(int generation){//Method for appending the game into an output file
 	ofstream fileoutput;
 	fileoutput.open("kasthuritran.out", std::ofstream::app);
 	fileoutput<<"Generation #:\t"<<generation<<endl;
@@ -303,7 +287,7 @@ void GameofLife::appendFile(int generation){
 	}
 	fileoutput.close();
 }
-void GameofLife::printBoard(){
+void GameofLife::printBoard(){//Prints the current board
 	for(int i=1; i<row+1; ++i){
 		for(int j = 1; j<column+1;++j){
 			cout<<oldBoard.getCell(i,j);
