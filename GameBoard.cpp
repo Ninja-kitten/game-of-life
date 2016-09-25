@@ -73,7 +73,6 @@ void GameBoard::setCell(int i, int j, char k){//sets the value of the specified 
 bool GameBoard::isEqual(GameBoard g){//checks if the gameboards are equal in size and character
   if(rows != g.getRows()|| columns != g.getColumns()){
     cout<<"WRONG!!!";
-    }
     return false;
   }
   char c;
