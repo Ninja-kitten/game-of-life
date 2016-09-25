@@ -118,6 +118,7 @@ GameofLife::~GameofLife(){
    
 }
 void GameofLife::nextGen(){
+  copyBoard();
   for(int i = 1; i<=row; ++i){
     for(int j = 1; j<=column;++j){
       if (oldBoard.countNeighbors(i,j)<=1)
@@ -142,7 +143,6 @@ void GameofLife::nextGen(){
   if(boundary==2){
     doughnutFill();
   }
-  copyBoard();
 }
 
 void GameofLife::playGame(){
