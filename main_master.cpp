@@ -10,7 +10,7 @@ int main(int argc, char** argv){
 
 cout << "Welcome to the Game of Life!" << endl;
 cout << "Would you like to start by providing a (f)ile to run the simulation or would you like a (r)andom assignment?"<< endl;
-cout << "Please enter 'file' or 'random' to start the setup." << endl;
+cout << "Please enter 'file', 'random' or 'preset' to start the setup." << endl;
 string answer;
 cin >> answer;
 while(answer != "file"&& answer != "f" && answer != "F" && answer != "random"&& answer != "r"&& answer != "R"){
@@ -90,6 +90,25 @@ else if(answer == "random"||answer == "r"||answer == "R")
     GameofLife gL(boundary,mode,numRow,numCol,density);
     gL.playGame();
 } 
+else if(answer == "preset" || answer == "p" || answer == "P")
+{
+  cout<< "To determine the type of display, please enter: (1) for Pause, (2) for Enter or (3) for File." << endl;
+  int mode;
+  cin >> mode;
+  while(mode != 1 && mode != 2 && mode != 3){
+    cout << "Invalid argument \n To determine the type of display, please enter: (1) for Pause, (2) for Enter or (3) for File." << endl;
+    cin >> mode;
+  }
+  cout<<"Please choose the preset file you'd like to see simulated: (1) for Small Exploder, (2) for Tumbler (3) for Exploder, (4) for 10-cell row or (5) for Spaceship." <<endl; 
+ int presetNum; 
+  cin >> presetNum;
+  switch(presetNum){
+    case 1:
+      gL.GameofLife(1,mode,Preset_smallExploder.txt);
+      break;
+    case
+  }
+}
 else{
  throw invalid_argument("Please enter file or random"); 
   }
