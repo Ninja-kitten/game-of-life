@@ -46,10 +46,11 @@ int GameBoard::countNeighbors(int i, int j){//Function to count the live neighbo
      {
       for(int l=j-1; l<=j+1; ++l)
           {
-            if(board[k][l] == 'X'&& k!=i && l!=j)
+            if(board[k][l] == 'X')
               { ++count;}
           }
       }
+      if(board[i][j]=='X'){count--;}
       return count;
 }
 
