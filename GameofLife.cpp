@@ -120,7 +120,6 @@ GameofLife::~GameofLife(){
 void GameofLife::nextGen(){
   for(int i = 1; i<=row; ++i){
     for(int j = 1; j<=column;++j){
-	cout<<"Cell\t"<<i<<j<<"\thas"<<oldBoard.countNeighbors(i,j)<<" neighbors"<<endl;
       if (oldBoard.countNeighbors(i,j)<=1)
       {
         newBoard.setCell(i,j,'-');
