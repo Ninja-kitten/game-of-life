@@ -20,6 +20,8 @@ to press the “enter” key, or if they want to output to a file.
 5. If the simulation is infinite, just keep running. But if the world becomes empty or
 stabilizes, the simulation should halt and ask the user to press “enter” to exit the
 program.
+6. For file mode, if the simulation does not reach a stable state after 1000 iterations, it will end the program.
+7. 5 Presets for different cases of exploder, rocket ship, and tumbler.
 
 Resources:
 -Added the ifndef etc. based on the suggestions of my friend Rio.
