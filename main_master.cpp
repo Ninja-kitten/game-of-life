@@ -108,29 +108,29 @@ else if(answer == "preset" || answer == "p" || answer == "P")
     cout << "Invalid argument \n To determine the type of display, please enter: \n (1) for Small exploder, (2) for Tumbler, (3) for Exploder, (4) 10-cell row or (5) spaceship" << endl;
     cin >> presetNum;
   }
-  switch(presetNum){
-    case 1:
+  if(presetNum == 1){
       GameofLife gL(1,mode,"Preset_smallExploder.txt");
       gL.playGame();
-      break;
-    case 2:
+  }
+  else if(presetNum == 2){
       GameofLife gL(1,mode,"Preset_tumbler.txt");
       gL.playGame();
-      break;
-    case 3:
+  }  
+   else if(presetNum == 3)
+   {
       GameofLife gL(1,mode,"Preset_exploder.txt");
       gL.playGame();
-      break;
-    case 4:
+   }
+    else if(presetNum == 4)
+    {
       GameofLife gL(1,mode,"Preset_tencell.txt");
       gL.playGame();
-      break;
-    case 5:
+    }
+    else if(presetNum == 5){
       GameofLife gL(2,mode,"Preset_spaceship.txt");
       gL.playGame();
-      break;
+    }
       
-  }
 }
 else{
  throw invalid_argument("Please enter file or random"); 
