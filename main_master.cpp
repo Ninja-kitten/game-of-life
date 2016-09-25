@@ -110,23 +110,23 @@ else if(answer == "preset" || answer == "p" || answer == "P")
   }
   switch(presetNum){
     case 1:
-      GameofLife gL(1,mode,Preset_smallExploder.txt);
+      GameofLife gL(1,mode,"Preset_smallExploder.txt");
       gL.playGame();
       break;
     case 2:
-      GameofLife gL(1,mode,Preset_tumbler.txt);
+      GameofLife gL(1,mode,"Preset_tumbler.txt");
       gL.playGame();
       break;
     case 3:
-      GameofLife gL(1,mode,Preset_exploder.txt);
+      GameofLife gL(1,mode,"Preset_exploder.txt");
       gL.playGame();
       break;
     case 4:
-      GameofLife gL(1,mode,Preset_tencell.txt);
+      GameofLife gL(1,mode,"Preset_tencell.txt");
       gL.playGame();
       break;
     case 5:
-      GameofLife gL(2,mode,Preset_spaceship.txt);
+      GameofLife gL(2,mode,"Preset_spaceship.txt");
       gL.playGame();
       break;
       
