@@ -120,6 +120,7 @@ GameofLife::~GameofLife(){
 }
 void GameofLife::nextGen(){//This method produces the next generation based off of the previous generation and the rules.
   copyBoard();
+	//sets oldboard equal to the new board before changing new board. This is the generational change
   for(int i = 1; i<=row; ++i){
     for(int j = 1; j<=column;++j){
       if (oldBoard.countNeighbors(i,j)<=1)
@@ -141,6 +142,7 @@ void GameofLife::nextGen(){//This method produces the next generation based off 
       }
     }
   }
+	//fill in the edges in the doughnut fill fashion
   if(boundary==2){
     doughnutFill();
   }
