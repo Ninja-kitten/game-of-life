@@ -79,7 +79,10 @@ GameofLife::GameofLife(int bound, int disp, string file){//Constructor for if th
     int i = 1;
     char d = ' ';
     while(getline(readfile,str))
-    {
+    {		if (str.length() != column){
+    		cout<<"INVALID FILE FORMAT!!! EXTING PROGRAM NOW!!!"<<endl;
+	    	throw;
+    		}
 	    for( int j = 1; j<column+1;++j)
 	    {
 	        d = str[j-1];
@@ -88,6 +91,10 @@ GameofLife::GameofLife(int bound, int disp, string file){//Constructor for if th
 	    }
 	    i++;
     }
+	if (i != row+1){
+    		cout<<"INVALID FILE FORMAT!!! EXTING PROGRAM NOW!!!"<<endl;
+	    	throw;
+    		}
 	 switch(bound){//User specifies the boundary mode
       case 1:
             classicFill();
