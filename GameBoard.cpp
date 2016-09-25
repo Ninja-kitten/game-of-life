@@ -3,8 +3,9 @@
 using namespace std;
 
 GameBoard::GameBoard(){}//default constructor
-GameBoard::GameBoard(int r, int c){//overloaded constructor to get the gameboard size. We make the board one row and column bigger than
-                                  //specified for some clever purposes.
+GameBoard::GameBoard(int r, int c){
+//overloaded constructor to get the gameboard size. We make the board one row and column bigger than
+//specified for some clever purposes.
   rows = r;
   columns = c;
   board = new char* [rows+2];
@@ -38,10 +39,12 @@ GameBoard::~GameBoard(){//destructor
       delete[] board[i];
   }
   delete[] board;
-*/}
+*/
+//originally had this code, but caused a double free error
+}
 
-int GameBoard::countNeighbors(int i, int j){//Function to count the live neighbors around the cell that is specified
-    int count=0;
+int GameBoard::countNeighbors(int i, int j){//Function to count the live neighbors around the cell that is specified  
+  int count=0;
     for(int k=i-1; k<=i+1; ++k)//nested forloop to check the surrounding 8 neighbors
      {
       for(int l=j-1; l<=j+1; ++l)
@@ -51,6 +54,7 @@ int GameBoard::countNeighbors(int i, int j){//Function to count the live neighbo
           }
       }
       if(board[i][j]=='X'){count--;}
+      //don't count the cell if it has an X.
       return count;
 }
 
@@ -76,6 +80,7 @@ bool GameBoard::isEqual(GameBoard g){//checks if the gameboards are equal in siz
     return false;
   }
   char c;
+  //cell by cell checks
   for(int i = 1; i<rows+1;++i){
     for(int j = 1; j <columns+1; ++j){
       c = g.getCell(i,j);
